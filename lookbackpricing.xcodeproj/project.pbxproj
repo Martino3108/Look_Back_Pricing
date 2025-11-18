@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D8DBCA282ECC73F30016E6DD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8DBCA252ECC73F30016E6DD /* main.cpp */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		D81A24F32EB142850097BBD5 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -20,15 +24,9 @@
 
 /* Begin PBXFileReference section */
 		D81A24F52EB142850097BBD5 /* Projet_informatique */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Projet_informatique; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8DBCA252ECC73F30016E6DD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		D8DBCA262ECC73F30016E6DD /* ReadMe */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		D81A24F72EB142850097BBD5 /* Projet_informatique */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Projet_informatique;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D81A24F22EB142850097BBD5 /* Frameworks */ = {
@@ -44,7 +42,7 @@
 		D81A24EC2EB142850097BBD5 = {
 			isa = PBXGroup;
 			children = (
-				D81A24F72EB142850097BBD5 /* Projet_informatique */,
+				D8DBCA272ECC73F30016E6DD /* Look_Back_Pricing */,
 				D81A24F62EB142850097BBD5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +53,15 @@
 				D81A24F52EB142850097BBD5 /* Projet_informatique */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D8DBCA272ECC73F30016E6DD /* Look_Back_Pricing */ = {
+			isa = PBXGroup;
+			children = (
+				D8DBCA252ECC73F30016E6DD /* main.cpp */,
+				D8DBCA262ECC73F30016E6DD /* ReadMe */,
+			);
+			path = Look_Back_Pricing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +78,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				D81A24F72EB142850097BBD5 /* Projet_informatique */,
 			);
 			name = Projet_informatique;
 			packageProductDependencies = (
@@ -96,7 +100,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D81A24F02EB142850097BBD5 /* Build configuration list for PBXProject "Projet_informatique" */;
+			buildConfigurationList = D81A24F02EB142850097BBD5 /* Build configuration list for PBXProject "lookbackpricing" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -120,6 +124,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8DBCA282ECC73F30016E6DD /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +265,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D81A24F02EB142850097BBD5 /* Build configuration list for PBXProject "Projet_informatique" */ = {
+		D81A24F02EB142850097BBD5 /* Build configuration list for PBXProject "lookbackpricing" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D81A24FA2EB142850097BBD5 /* Debug */,
