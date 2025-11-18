@@ -1,8 +1,9 @@
 //
 //  main.cpp
-//  Projet_informatique
+//  LookBackPricing
 //
-//  Created by Martino Arena on 28/10/25.
+//  Created by Vincenzo Martino Pio Arena on 28/10/25.
+//  Co-workers: Vincenzo Martino Pio Arena and Marco De Luca
 //
 
 #include <iostream>
