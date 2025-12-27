@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D89202102F0039BB0071B382 /* Look_Back.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D892020F2F0039B30071B382 /* Look_Back.cpp */; };
 		D8DBCA282ECC73F30016E6DD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D8DBCA252ECC73F30016E6DD /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,8 @@
 
 /* Begin PBXFileReference section */
 		D81A24F52EB142850097BBD5 /* Projet_informatique */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Projet_informatique; sourceTree = BUILT_PRODUCTS_DIR; };
+		D892020E2F002FFD0071B382 /* Look_Back.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Look_Back.h; sourceTree = "<group>"; };
+		D892020F2F0039B30071B382 /* Look_Back.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Look_Back.cpp; sourceTree = "<group>"; };
 		D8DBCA252ECC73F30016E6DD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D8DBCA262ECC73F30016E6DD /* ReadMe */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,6 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				D8DBCA252ECC73F30016E6DD /* main.cpp */,
+				D892020E2F002FFD0071B382 /* Look_Back.h */,
+				D892020F2F0039B30071B382 /* Look_Back.cpp */,
 				D8DBCA262ECC73F30016E6DD /* ReadMe */,
 			);
 			path = Look_Back_Pricing;
@@ -125,6 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8DBCA282ECC73F30016E6DD /* main.cpp in Sources */,
+				D89202102F0039BB0071B382 /* Look_Back.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
