@@ -20,7 +20,6 @@ class look_back
     
 private:
     double S0_;
-    unsigned int date_;
     unsigned int maturity_;
     double sigma_;
     double interest_rate_;
@@ -30,7 +29,7 @@ private:
     
 public:
     
-    explicit look_back(double S0, unsigned int date, unsigned int maturity, double sigma, double interest_rate, std::string option, unsigned int N, double h): S0_(S0), date_(date), maturity_(maturity), sigma_(sigma), interest_rate_(interest_rate), option_(option), N_(N), h_(h) {}
+    explicit look_back(double S0, unsigned int maturity, double sigma, double interest_rate, std::string option, unsigned int N, double h): S0_(S0), maturity_(maturity), sigma_(sigma), interest_rate_(interest_rate), option_(option), N_(N), h_(h) {}
     
     double price(double S) const;
     double delta(double S) const;
