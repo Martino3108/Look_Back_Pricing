@@ -10,8 +10,15 @@
 #include "Look_Back.h"
 
 int main(int argc, const char * argv[]) {
-    look_back l(100, 252, 0.1, 0.01, "CALL", 10000, 0.01);
+    look_back l(10, 1, 0.1, 0.01, "CALL", 100000, 0.01);
+    
+   
+    std::cout<<l.price(100,0.1,0.01,1)<<std::endl;
+    std::cout<<l.delta(100)<<std::endl;
+    std::cout<<l.rho()<<std::endl;
+    std::cout<<l.vega()<<std::endl;
+    std::cout<<l.theta()<<std::endl;
+    std::cout<<l.gamma()<<std::endl;
     
     
-    std::cout<<l.price(100);
 }
