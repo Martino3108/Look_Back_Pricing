@@ -40,8 +40,8 @@ public:
     double rho() const;
     double vega() const;
     double gamma() const;
-    std::array<vect,2> graphic_price() const;
-    std::array<vect,2> graphic_delta() const;
+    std::array<vect,2> graphic_price(double dx) const;
+    std::array<vect,2> graphic_delta(double dx) const;
 
 
     

@@ -81,6 +81,28 @@ double look_back::gamma() const
     return (price(S0_ + h_, sigma_, interest_rate_,maturity_) + price(S0_ - h_, sigma_, interest_rate_, maturity_)-2*price(S0_, sigma_, interest_rate_,maturity_)) / (h_*h_);
 }
 
-//std::array<vect,2> graphic_price() const{}
+std::array<vect,2> look_back::graphic_price(double dx) const
+{
+    
+    std::array<vect,2> graph;
+    for(double s=0; s<2*S0_; s+=dx*S0_)
+    {
+        graph[0].push_back(s);
+        graph[1].push_back(price(s, sigma_, interest_rate_, maturity_));
+    }
+    return graph;
+}
 
-//std::array<vect,2> graphic_delta() const{}
+
+std::array<vect,2> look_back::graphic_delta(double dx) const
+
+{
+    std::array<vect,2> graph;
+    for(double s=0; s<2*S0_; s+=dx*S0_)
+    {
+        graph[0].push_back(s);
+        graph[1].push_back(delta(s));
+    }
+    return graph;
+    
+}
