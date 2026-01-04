@@ -15,6 +15,8 @@ double look_back::price(double S, double sigma, double interest_rate, double mat
     // SI POTREBBE FARE UNA CLASSE PER CHECKARE LE EXCEPTION
     int n_steps=maturity*252.0;
     double payoff_sum=0;
+    
+    // CAPIRE QUALE GENERATORE USARE
     std::mt19937_64 gen(42);
     std::normal_distribution<double> gaussian(0,1);
     for(int i=0; i<N_; ++i)
@@ -27,8 +29,8 @@ double look_back::price(double S, double sigma, double interest_rate, double mat
             double Z=gaussian(gen);
             simulation_plus.push_back(simulation_plus.back()*std::exp(interest_rate*(1.0/252.0)-0.5*sigma*sigma*(1.0/252.0)+sigma*std::sqrt((1.0/252.0))*Z));
             simulation_minus.push_back(simulation_minus.back()*std::exp(interest_rate*(1.0/252.0)-0.5*sigma*sigma*(1.0/252.0)-sigma*std::sqrt((1.0/252.0))*Z));
-    
         }
+        
         
         if (option_== "CALL")
         {
@@ -81,6 +83,8 @@ double look_back::gamma() const
     return (price(S0_ + h_, sigma_, interest_rate_,maturity_) + price(S0_ - h_, sigma_, interest_rate_, maturity_)-2*price(S0_, sigma_, interest_rate_,maturity_)) / (h_*h_);
 }
 
+
+// dx is 1/n_points on the x axis
 std::array<vect,2> look_back::graphic_price(double dx) const
 {
     
