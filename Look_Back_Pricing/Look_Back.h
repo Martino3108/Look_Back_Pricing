@@ -27,14 +27,13 @@ private:
     double sigma_;
     double interest_rate_;
     std::string option_;
-    unsigned int N_;
     double h_;
     
 public:
     
-    explicit look_back(double S0, double maturity, double sigma, double interest_rate, std::string option, unsigned int N, double h): S0_(S0), maturity_(maturity), sigma_(sigma), interest_rate_(interest_rate), option_(option), N_(N), h_(h) {}
+    explicit look_back(double S0, double maturity, double sigma, double interest_rate, std::string option, double h): S0_(S0), maturity_(maturity), sigma_(sigma), interest_rate_(interest_rate), option_(option), h_(h) {}
     
-    double price(double S, double sigma, double interest_rate, double maturity) const;
+    double price(double S, double sigma, double interest_rate, double maturity, unsigned int N=25000000) const;
     double delta(double S) const;
     double theta() const;
     double rho() const;
