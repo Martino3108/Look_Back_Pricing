@@ -12,7 +12,7 @@
 #include <string>
 #include <stdexcept>
 
-// funzione per la formattazione dei giorni
+// funzione per la formattazione dei giorni dd-mm-yyyy
 std::chrono::year_month_day date_formatting_dd_mm_yyyy(const std::string& s);
 
 // struct per definire le date

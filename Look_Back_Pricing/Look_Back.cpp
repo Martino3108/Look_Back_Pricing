@@ -9,7 +9,9 @@
 #include <algorithm>
 #include <random>
 
-double look_back::price(double S, double sigma, double interest_rate, double maturity, unsigned int N) const
+#include "Date_Dealing.h"
+
+double look_back::price(double S, double sigma, double interest_rate, double maturity, Date value_date, Date maturity_date, DayCountConv dcc, unsigned int N) const
 {
 
     // SI POTREBBE FARE UNA CLASSE PER CHECKARE LE EXCEPTION
@@ -24,9 +26,10 @@ double look_back::price(double S, double sigma, double interest_rate, double mat
     for(int i=0; i<N; ++i)
     {
         
-            double Z=gaussian(gen);
-            simulation_plus=S*std::exp((interest_rate-0.5*sigma*sigma)*maturity-sigma*std::sqrt(maturity)*Z);
-            simulation_minus=S*std::exp((interest_rate-0.5*sigma*sigma)*maturity-sigma*std::sqrt(maturity)*(-Z));
+        double Z=gaussian(gen);
+        double ttm = yearFraction(value_date, maturity_date, dcc);
+            simulation_plus=S*std::exp((interest_rate-0.5*sigma*sigma)*ttm-sigma*std::sqrt(ttm)*Z);
+            simulation_minus=S*std::exp((interest_rate-0.5*sigma*sigma)*ttm-sigma*std::sqrt(ttm)*(-Z));
     
         
         
@@ -62,21 +65,21 @@ double look_back::price(double S, double sigma, double interest_rate, double mat
 double look_back::delta(double S) const
 {
     unsigned int N =4/(std::pow(h_, 4));
-    return (price(S0_ + h_, sigma_, interest_rate_,maturity_, N) - price(S0_ - h_, sigma_, interest_rate_, maturity_, N)) / (2.0 * h_);
+    return (price(S0_ + h_, sigma_, interest_rate_,maturity_, value_date_, maturity_date_, dcc_, N) - price(S0_ - h_, sigma_, interest_rate_, maturity_, value_date_, maturity_date_, dcc_, N)) / (2.0 * h_);
 }
 
 double look_back::vega() const
 {
     //multiplied by 0.01 in order to pass from percentage to numeric value
     unsigned int N =4/(std::pow(h_, 4));
-    return 0.01*(price(S0_, sigma_+ h_, interest_rate_, maturity_, N) - price(S0_, sigma_- h_, interest_rate_ , maturity_, N)) / (2.0 * h_);
+    return 0.01*(price(S0_, sigma_+ h_, interest_rate_, maturity_, value_date_, maturity_date_, dcc_, N) - price(S0_, sigma_- h_, interest_rate_ , maturity_, value_date_, maturity_date_, dcc_, N)) / (2.0 * h_);
 }
 
 double look_back::rho() const
 {
     //multiplied by 0.01 in order to pass from percentage to numeric value
     unsigned int N =4/(std::pow(h_, 4));
-    return 0.01*(price(S0_, sigma_, interest_rate_+ h_, maturity_, N) - price(S0_, sigma_, interest_rate_- h_, maturity_, N)) / (2.0 * h_);
+    return 0.01*(price(S0_, sigma_, interest_rate_+ h_, maturity_, value_date_, maturity_date_, dcc_, N) - price(S0_, sigma_, interest_rate_- h_, maturity_, value_date_, maturity_date_, dcc_,N)) / (2.0 * h_);
 }
 
 double look_back::theta() const
@@ -84,13 +87,13 @@ double look_back::theta() const
     //daily theta
     double day=(1.0/252.0);
     unsigned int N =4/(std::pow(day, 3));
-    return (price(S0_, sigma_, interest_rate_, maturity_-day, N) - price(S0_, sigma_, interest_rate_, maturity_, N));
+    return (price(S0_, sigma_, interest_rate_, maturity_-day, value_date_, maturity_date_, dcc_, N) - price(S0_, sigma_, interest_rate_, maturity_, value_date_, maturity_date_, dcc_,N));
 }
 
 double look_back::gamma() const
 {
     unsigned int N =4/(std::pow(h_, 4));
-    return (price(S0_ + h_, sigma_, interest_rate_,maturity_, N) + price(S0_ - h_, sigma_, interest_rate_, maturity_, N)-2*price(S0_, sigma_, interest_rate_,maturity_, N)) / (h_*h_);
+    return (price(S0_ + h_, sigma_, interest_rate_,maturity_, value_date_, maturity_date_, dcc_, N) + price(S0_ - h_, sigma_, interest_rate_, maturity_, value_date_, maturity_date_, dcc_,N)-2*price(S0_, sigma_, interest_rate_,maturity_, value_date_, maturity_date_, dcc_, N)) / (h_*h_);
 }
 
 
@@ -102,7 +105,7 @@ std::array<vect,2> look_back::graphic_price(double dx) const
     for(double s=0; s<2*S0_; s+=dx*S0_)
     {
         graph[0].push_back(s);
-        graph[1].push_back(price(s, sigma_, interest_rate_, maturity_, h_));
+        graph[1].push_back(price(s, sigma_, interest_rate_, maturity_, value_date_, maturity_date_, dcc_));
     }
     return graph;
 }
