@@ -13,6 +13,8 @@
 #include <array>
 #include <random>
 
+#include "Date_Dealing.h"
+
 
 typedef std::vector<double> vect;
 
