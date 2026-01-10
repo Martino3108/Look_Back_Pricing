@@ -84,7 +84,7 @@ double look_back::theta() const
     //daily theta
     double day=(1.0/252.0);
     unsigned int N =4/(std::pow(day, 3));
-    return (-price(S0_, sigma_, interest_rate_, maturity_-day, N) + price(S0_, sigma_, interest_rate_, maturity_, N));
+    return (price(S0_, sigma_, interest_rate_, maturity_-day, N) - price(S0_, sigma_, interest_rate_, maturity_, N));
 }
 
 double look_back::gamma() const
