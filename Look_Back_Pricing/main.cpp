@@ -22,7 +22,7 @@ int main(int argc, const char * argv[]) {
     Date value_date("01-1-2024"), maturity_date("01-01-2025"); // dd-mm-yyyy
     double ttm = yearFraction(value_date, maturity_date, DayCountConv::ACT_ACT_ISDA);
     
-    look_back l(100, value_date, maturity_date, 0.2, 0.05, "CALL", 0.01);
+    look_back l(100, value_date, maturity_date, 0.2, 0.05, 'C', 0.01);
     
     std::cout<<"Price: "<<l.price(100,0.2,0.05, ttm)<<std::endl;
     std::cout<<"Delta: "<<l.delta(100)<<std::endl;

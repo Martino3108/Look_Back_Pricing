@@ -32,15 +32,15 @@ private:
     
     double sigma_;
     double interest_rate_;
-    std::string option_;
+    char option_;
     double h_;
     
 public:
     
-    explicit look_back(double S0, Date value_date, Date maturity_date, double sigma, double interest_rate, std::string option, double h, DayCountConv ddc  = DayCountConv::ACT_ACT_ISDA): S0_(S0), ttm_(yearFraction(value_date, maturity_date, ddc)), value_date_(value_date), maturity_date_(maturity_date), sigma_(sigma), interest_rate_(interest_rate), option_(option), h_(h) {}
+    explicit look_back(double S0, Date value_date, Date maturity_date, double sigma, double interest_rate, char option, double h, DayCountConv ddc  = DayCountConv::ACT_ACT_ISDA): S0_(S0), ttm_(yearFraction(value_date, maturity_date, ddc)), value_date_(value_date), maturity_date_(maturity_date), sigma_(sigma), interest_rate_(interest_rate), option_(std::tolower(option)), h_(h) {}
 
     
-    double price(double S, double sigma, double interest_rate, double maturity, unsigned int N = 1000000) const;
+    double price(double S, double sigma, double interest_rate, double maturity, unsigned int N = 10000000) const;
     double delta(double S) const;
     double theta() const;
     double rho() const;

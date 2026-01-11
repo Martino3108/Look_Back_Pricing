@@ -20,49 +20,62 @@ double look_back::price(double S, double sigma, double interest_rate, double ttm
     std::mt19937_64 gen(42);
     std::normal_distribution<double> gaussian(0,1);
     std::uniform_real_distribution<double> uniform(0.0, 1.0);
-    double simulation_plus=0;
-    double simulation_minus=0;
+    double log_simulation_plus=0;
+    double log_simulation_minus=0;
+    double rad=std::sqrt(ttm);
+    double mu=(interest_rate-0.5*sigma*sigma)*ttm;
+    double logs=std::log(S);
     
-    for(int i=0; i<N; ++i)
+    if (option_== 'c')
     {
-        
-        double Z=gaussian(gen);
-            simulation_plus=S*std::exp((interest_rate-0.5*sigma*sigma)*ttm-sigma*std::sqrt(ttm)*Z);
-            simulation_minus=S*std::exp((interest_rate-0.5*sigma*sigma)*ttm-sigma*std::sqrt(ttm)*(-Z));
-    
-        
-        
-        if (option_== "CALL")
+        for(int i=0; i<N; ++i)
         {
+            
+            double Z=gaussian(gen);
+            
+            log_simulation_plus = logs + mu - sigma*rad*Z;
+            log_simulation_minus = logs + mu + sigma*rad*Z;
+            
             double U1=uniform(gen);
             double U2=uniform(gen);
-            double min_plus= std::exp(0.5*(std::log(S) + std::log(simulation_plus)) - 0.5*std::sqrt( (std::log(simulation_plus) - std::log(S))*(std::log(simulation_plus) - std::log(S)) - 2.0*sigma*sigma*ttm*std::log(1.0 - U1) ) );
-
-            double min_minus= std::exp(0.5*(std::log(S) + std::log(simulation_minus)) - 0.5*std::sqrt( (std::log(simulation_minus) - std::log(S))*(std::log(simulation_minus) - std::log(S)) - 2.0*sigma*sigma*ttm*std::log(1.0 - U2) ) );
+            double min_plus= std::exp(0.5*(logs + log_simulation_plus) - 0.5*std::sqrt( (log_simulation_plus - logs)*(log_simulation_plus - logs) - 2.0*sigma*sigma*ttm*std::log(1.0 - U1)));
             
-            payoff_sum+=(simulation_plus-min_plus)+(simulation_minus-min_minus);
-        } else // if (option_== "PUT") // alternativa per la put
-        {
-            double U1=uniform(gen);
-            double U2=uniform(gen);
-            double max_plus= std::exp(0.5*(std::log(S) + std::log(simulation_plus)) + 0.5*std::sqrt( (std::log(simulation_plus) - std::log(S))*(std::log(simulation_plus) - std::log(S)) - 2.0*sigma*sigma*ttm*std::log(1.0 - U1) ) );
-
-            double max_minus= std::exp(0.5*(std::log(S) + std::log(simulation_minus)) + 0.5*std::sqrt( (std::log(simulation_minus) - std::log(S))*(std::log(simulation_minus) - std::log(S)) - 2.0*sigma*sigma*ttm*std::log(1.0 - U2) ) );
+            double min_minus= std::exp(0.5*(logs + log_simulation_minus) - 0.5*std::sqrt( (log_simulation_minus - logs)*(log_simulation_minus - logs) - 2.0*sigma*sigma*ttm*std::log(1.0 - U2) )) ;
             
-            payoff_sum+=(-simulation_plus+max_plus)+(-simulation_minus+max_minus);
+            payoff_sum+=(std::exp(log_simulation_plus)-min_plus)+(std::exp(log_simulation_minus)-min_minus);
         }
-        
-        
+    }
+    else
+    {
+        for(int i=0; i<N; ++i)
+        {
+                
+            double Z=gaussian(gen);
+            log_simulation_plus = logs + mu - sigma*rad*Z;
+            log_simulation_minus = logs + mu + sigma*rad*Z;
+
+            double U1=uniform(gen);
+            double U2=uniform(gen);
+            double max_plus= std::exp(0.5*(logs + log_simulation_plus) + 0.5*std::sqrt((log_simulation_plus - logs)*(log_simulation_plus - logs) - 2.0*sigma*sigma*ttm*std::log(1.0 - U1)) ) ;
+
+            double max_minus= std::exp(0.5*(logs +log_simulation_minus) + 0.5*std::sqrt(( log_simulation_minus - logs)*(log_simulation_minus - logs) - 2.0*sigma*sigma*ttm*std::log(1.0 - U2) )) ;
+            
+            payoff_sum+=(-std::exp(log_simulation_plus)+max_plus)+(-std::exp(log_simulation_minus)+max_minus);
+        }
     }
     
     double payoff=payoff_sum/(2*N);
     return std::exp(-ttm*interest_rate)*payoff;
 }
 
+
+
+
 double look_back::delta(double S) const
 {
-    double h=std::sqrt(h_);
-    return (price(S0_ + h, sigma_, interest_rate_,ttm_) - price(S0_ - h, sigma_, interest_rate_, ttm_)) / (2.0 * h_);
+    double h=5*h_;
+    unsigned int N =1/(std::pow(h, 4));
+    return (price(S0_ + h, sigma_, interest_rate_,ttm_, N) - price(S0_ - h, sigma_, interest_rate_, ttm_, N)) / (2.0 * h);
 }
 
 double look_back::vega() const
@@ -88,9 +101,9 @@ double look_back::theta() const
 
 double look_back::gamma() const
 {
-    double h=std::sqrt(h_);
+    double h=5*h_;
     unsigned int N =1/(std::pow(h, 4));
-    return (price(S0_ + h, sigma_, interest_rate_,ttm_, N) + price(S0_ - h, sigma_, interest_rate_, ttm_,N)-2.0*price(S0_, sigma_, interest_rate_,ttm_, N)) / (h*h);
+    return (price(S0_ + h, sigma_, interest_rate_,ttm_, N) + price(S0_ - h, sigma_, interest_rate_, ttm_, N)-2.0*price(S0_, sigma_, interest_rate_,ttm_, N)) / (h*h);
 }
 
 
