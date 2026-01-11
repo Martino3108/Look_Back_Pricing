@@ -7,24 +7,35 @@
 //
 
 #include <iostream>
-
+#include <chrono>
+#include <iostream>
 #include "Look_Back.h"
 #include "Date_Dealing.h"
 
 int main(int argc, const char * argv[]) {
     
-    Date value_date("01-1-2024"), maturity_date("01-1-2025");
+    using clock = std::chrono::high_resolution_clock;
+
+    auto t0 = clock::now();
     
-    look_back l(100, 1, 0.2, 0.05, "CALL", 0.01, value_date, maturity_date, DayCountConv::ACT_360);
+    Date value_date("01-1-2024"), maturity_date("01-01-2025");
+    double maturity=yearFraction(value_date, maturity_date, DayCountConv::ACT_ACT_ISDA);
+    
+    look_back l(100, maturity, 0.2, 0.05, "CALL", 0.01);
     
    
-    std::cout<<"Price: "<<l.price(100,0.2,0.05,1, value_date, maturity_date, DayCountConv::ACT_360)<<std::endl;
-    //std::cout<<"Delta: "<<l.delta(100)<<std::endl;
-    //std::cout<<"Rho: "<<l.rho()<<std::endl;
-    //std::cout<<"Vega: "<<l.vega()<<std::endl;
-    //std::cout<<"Theta: "<<l.theta()<<std::endl;
-    //std::cout<<"Gamma: "<<l.gamma()<<std::endl;
-    //std::array<vect, 2> g1=l.graphic_price(0.1);
-    //std::array<vect, 2> g2=l.graphic_delta(0.1);
+    std::cout<<"Price: "<<l.price(100,0.2,0.05, maturity)<<std::endl;
+    std::cout<<"Delta: "<<l.delta(100)<<std::endl;
+    std::cout<<"Rho: "<<l.rho()<<std::endl;
+    std::cout<<"Vega: "<<l.vega()<<std::endl;
+    std::cout<<"Theta: "<<l.theta()<<std::endl;
+    std::cout<<"Gamma: "<<l.gamma()<<std::endl;
+    std::array<vect, 2> g1=l.graphic_price(0.1);
+    std::array<vect, 2> g2=l.graphic_delta(0.1);
     
+    
+    auto t1 = clock::now();
+
+    std::chrono::duration<double> dt = t1 - t0; // secondi (double)
+    std::cout << "Elapsed: " << dt.count() << " s\n";
 }
