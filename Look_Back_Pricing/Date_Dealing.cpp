@@ -77,6 +77,7 @@ double yearfrac_30_360_us(const Date& Date1, const Date& Date2)
     if (day2 == 31 && day1 == 30) day2 = 30;
 
     int days360 = 360*(year2 - year1) + 30*(month2 - month1) + (day2 - day1);
+    
     return days360 / 360.0;
 }
 
@@ -114,7 +115,7 @@ double yearfrac_act_act_isda(const Date& date1, const Date& date2)
 double yearFraction(const Date& start, const Date& end, DayCountConv dc)
 {
     if(std::chrono::sys_days{end.d_} < std::chrono::sys_days{start.d_})
-        throw std::invalid_argument("end < start in yearFraction");
+        throw std::invalid_argument("end date < start date in yearFraction");
     
     const int days_betw = days_difference(start, end);
     
@@ -129,7 +130,7 @@ double yearFraction(const Date& start, const Date& end, DayCountConv dc)
             return yearfrac_30_360_eu(start, end);
             
         case DayCountConv::THIRTY_360_US:
-            yearfrac_30_360_us(start, end);
+            return yearfrac_30_360_us(start, end);
             
         case DayCountConv::ACT_ACT_ISDA:
             return yearfrac_act_act_isda(start, end);

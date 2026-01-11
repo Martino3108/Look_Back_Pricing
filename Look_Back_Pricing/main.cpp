@@ -9,6 +9,7 @@
 #include <iostream>
 #include <chrono>
 #include <iostream>
+
 #include "Look_Back.h"
 #include "Date_Dealing.h"
 
@@ -18,13 +19,12 @@ int main(int argc, const char * argv[]) {
 
     auto t0 = clock::now();
     
-    Date value_date("01-1-2024"), maturity_date("01-01-2025");
-    double maturity=yearFraction(value_date, maturity_date, DayCountConv::ACT_ACT_ISDA);
+    Date value_date("01-1-2024"), maturity_date("01-01-2025"); // dd-mm-yyyy
+    double ttm = yearFraction(value_date, maturity_date, DayCountConv::ACT_ACT_ISDA);
     
-    look_back l(100, maturity, 0.2, 0.05, "CALL", 0.01);
+    look_back l(100, value_date, maturity_date, 0.2, 0.05, "CALL", 0.01);
     
-   
-    std::cout<<"Price: "<<l.price(100,0.2,0.05, maturity)<<std::endl;
+    std::cout<<"Price: "<<l.price(100,0.2,0.05, ttm)<<std::endl;
     std::cout<<"Delta: "<<l.delta(100)<<std::endl;
     std::cout<<"Rho: "<<l.rho()<<std::endl;
     std::cout<<"Vega: "<<l.vega()<<std::endl;

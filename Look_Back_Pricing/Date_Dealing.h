@@ -49,6 +49,6 @@ double yearfrac_30_360_us(const Date& Date1, const Date& Date2);
 double yearfrac_act_act_isda(const Date& date1, const Date& date2);
 
 // year fraction function
-double yearFraction(const Date& start, const Date& end, DayCountConv dc);
+double yearFraction(const Date& start, const Date& end, DayCountConv dc  = DayCountConv::ACT_ACT_ISDA);
 
 #endif /* Date_Dealing_h */
