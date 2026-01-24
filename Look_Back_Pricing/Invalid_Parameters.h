@@ -37,6 +37,8 @@ public:
             
         if (interest_rate < 0)
             throw Invalid_Parameters("Our model allows only for positive interest rates.");
+        if(ttm < 0)
+            throw Invalid_Parameters("end date < start date in yearFraction");
         
     }
 };

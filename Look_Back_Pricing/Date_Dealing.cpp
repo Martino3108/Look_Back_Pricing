@@ -116,8 +116,6 @@ double yearFraction(const Date& start, const Date& end, DayCountConv dc)
 {
     auto startDate = std::chrono::sys_days{start.d_};
     auto endDate   = std::chrono::sys_days{end.d_};
-    if(startDate > endDate)
-        throw std::invalid_argument("end date < start date in yearFraction");
     
     const int days_betw = days_difference(start, end);
     
