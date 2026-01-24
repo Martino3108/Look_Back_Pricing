@@ -110,6 +110,8 @@ double look_back::theta() const
     return (price(S0_, sigma_, interest_rate_, ttm_-day,N) - price(S0_, sigma_, interest_rate_, ttm_+day, N))/ (2.0*day);
 }
 
+
+
 double look_back::gamma() const
 {
     double h=2*h_;

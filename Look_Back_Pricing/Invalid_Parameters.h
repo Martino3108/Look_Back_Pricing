@@ -32,7 +32,6 @@ public:
         if (sigma <= 0)
             throw Invalid_Parameters("Volatility must be positive.");
             
-            
         if (option != 'c' && option != 'p')
             throw Invalid_Parameters("Option type can only be 'c' (Call) o 'p' (Put).");
             
