@@ -70,8 +70,8 @@ double yearfrac_30_360_us(const Date& Date1, const Date& Date2)
         return unsigned(ymd_leap.day());
     };
     
-    if(month1 == 2 && last_day(year1, month1)) day1 = 30;
-    if(month2 == 2 && last_day(year2, month2)) day2 = 30;
+    if(month1 == 2 && day1 == last_day(year1, month1)) day1 = 30;
+    if(month2 == 2 && day2 == last_day(year2, month2)) day2 = 30;
     
     if (day1 == 31) day1 = 30;
     if (day2 == 31 && day1 == 30) day2 = 30;
@@ -94,8 +94,8 @@ double yearfrac_act_act_isda(const Date& date1, const Date& date2)
     }
     
     // calcolo per il primo anno
-    int denom1 = 365;
-    if (is_leap(year1)) denom1 = 366;
+    double denom1 = 365.0;
+    if (is_leap(year1)) denom1 = 366.0;
     std::chrono::year_month_day end_year1 = std::chrono::sys_days{ std::chrono::year{year1}/std::chrono::December/std::chrono::day{31}} + std::chrono::days{1}; // + 1 giorno perchè lavoriamo con intervalli semiaperti [ , )
     double first_year = (std::chrono::sys_days{end_year1} - std::chrono::sys_days{date1.d_}).count()/double(denom1);
     
@@ -103,8 +103,8 @@ double yearfrac_act_act_isda(const Date& date1, const Date& date2)
     double middle_years = double(year2 - year1 - 1);
     
     // calcolo ultimo anno
-    int denom2 = 365;
-    if (is_leap(year2)) denom2 = 366;
+    double denom2 = 365.0;
+    if (is_leap(year2)) denom2 = 366.0;
     std::chrono::year_month_day start_y2 = std::chrono::year{year2}/std::chrono::January/std::chrono::day{1};
     double last_year = (std::chrono::sys_days{date2.d_} - std::chrono::sys_days{start_y2}).count()/denom2;
 
