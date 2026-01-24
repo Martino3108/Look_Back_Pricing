@@ -114,8 +114,8 @@ double yearfrac_act_act_isda(const Date& date1, const Date& date2)
 // year fraction function
 double yearFraction(const Date& start, const Date& end, DayCountConv dc)
 {
-    auto startDate = std::chrono::sys_days{start.d_};
-    auto endDate   = std::chrono::sys_days{end.d_};
+    //auto startDate = std::chrono::sys_days{start.d_};
+    //auto endDate   = std::chrono::sys_days{end.d_};
     
     const int days_betw = days_difference(start, end);
     

@@ -42,7 +42,7 @@ int main(int argc, const char * argv[]) {
     std::chrono::duration<double> dt = t1 - t0; // secondi (double)
     std::cout << "Elapsed: " << dt.count() << " s\n";
     
-    std::cout<<"TTM: "<<ttm<<"\n";
+    //std::cout<<"TTM: "<<ttm<<"\n";
     }
     
     catch (const Invalid_Parameters & e)
