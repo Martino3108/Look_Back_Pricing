@@ -28,6 +28,7 @@
 		A2FF03C62F125EF000680A3D /* Date_Dealing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Date_Dealing.h; sourceTree = "<group>"; };
 		A2FF03C72F12A8CE00680A3D /* Date_Dealing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Date_Dealing.cpp; sourceTree = "<group>"; };
 		D81A24F52EB142850097BBD5 /* Projet_informatique */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Projet_informatique; sourceTree = BUILT_PRODUCTS_DIR; };
+		D82FA1952F24D5760080F76A /* Invalid_Parameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Invalid_Parameters.h; sourceTree = "<group>"; };
 		D892020E2F002FFD0071B382 /* Look_Back.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Look_Back.h; sourceTree = "<group>"; };
 		D892020F2F0039B30071B382 /* Look_Back.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Look_Back.cpp; sourceTree = "<group>"; };
 		D8DBCA252ECC73F30016E6DD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 				D8DBCA252ECC73F30016E6DD /* main.cpp */,
 				A2FF03C62F125EF000680A3D /* Date_Dealing.h */,
 				A2FF03C72F12A8CE00680A3D /* Date_Dealing.cpp */,
+				D82FA1952F24D5760080F76A /* Invalid_Parameters.h */,
 				D892020E2F002FFD0071B382 /* Look_Back.h */,
 				D892020F2F0039B30071B382 /* Look_Back.cpp */,
 				D8DBCA262ECC73F30016E6DD /* ReadMe */,

@@ -5,7 +5,7 @@
 //  Created by Marco De Luca on 10/01/26.
 //
 
-#include <stdio.h>
+#include <iostream>
 #include <chrono>
 #include <string>
 #include <stdexcept>
@@ -114,7 +114,9 @@ double yearfrac_act_act_isda(const Date& date1, const Date& date2)
 // year fraction function
 double yearFraction(const Date& start, const Date& end, DayCountConv dc)
 {
-    if(std::chrono::sys_days{end.d_} < std::chrono::sys_days{start.d_})
+    auto startDate = std::chrono::sys_days{start.d_};
+    auto endDate   = std::chrono::sys_days{end.d_};
+    if(startDate > endDate)
         throw std::invalid_argument("end date < start date in yearFraction");
     
     const int days_betw = days_difference(start, end);

@@ -73,36 +73,47 @@ double look_back::price(double S, double sigma, double interest_rate, double ttm
 
 double look_back::delta(double S) const
 {
-    double h=5*h_;
-    unsigned int N =4/(std::pow(h, 4));
+    double h=2*h_;
+    unsigned int N =1/(std::pow(h, 4));
     return (price(S0_ + h, sigma_, interest_rate_,ttm_, N) - price(S0_ - h, sigma_, interest_rate_, ttm_, N)) / (2.0 * h);
 }
 
 double look_back::vega() const
 {
     //multiplied by 0.01 in order to pass from percentage to numeric value
-    unsigned int N =4/(std::pow(h_, 4));
+    unsigned int N =1/(std::pow(h_, 4));
     return 0.01*(price(S0_, sigma_+ h_, interest_rate_, ttm_, N) - price(S0_, sigma_- h_, interest_rate_ , ttm_, N)) / (2.0 * h_);
 }
 
 double look_back::rho() const
 {
     //multiplied by 0.01 in order to pass from percentage to numeric value
-    unsigned int N =4/(std::pow(h_, 4));
-    return 0.01*(price(S0_, sigma_, interest_rate_+ h_, ttm_, N) - price(S0_, sigma_, interest_rate_- h_, ttm_, N)) / (2.0 * h_);
+    unsigned int N =1/(std::pow(h_, 4));
+    
+    
+    // to avoid using centered scheme if h is bigger than the interest rate
+    if (h_<=interest_rate_)
+        return 0.01*(price(S0_, sigma_, interest_rate_+ h_, ttm_, N) - price(S0_, sigma_, interest_rate_- h_, ttm_, N)) / (2.0 * h_);
+    
+    else
+    {
+        return 0.01*(price(S0_, sigma_, interest_rate_+ h_, ttm_, N) - price(S0_, sigma_, interest_rate_, ttm_, N)) / h_;
+    }
+    
+    
 }
 
 double look_back::theta() const
 {
-    double day=(7.0/365.0); // definito come infinitesimo di tempo, non importa la convenzione
-    unsigned int N =4/(std::pow(day, 4));
+    double day=(7.0/365.0);
+    unsigned int N =1/(std::pow(day, 4));
     return (price(S0_, sigma_, interest_rate_, ttm_-day,N) - price(S0_, sigma_, interest_rate_, ttm_+day, N))/ (2.0*day);
 }
 
 double look_back::gamma() const
 {
-    double h=5*h_;
-    unsigned int N =4/(std::pow(h, 4));
+    double h=2*h_;
+    unsigned int N =1/(std::pow(h, 4));
     return (price(S0_ + h, sigma_, interest_rate_,ttm_, N) + price(S0_ - h, sigma_, interest_rate_, ttm_, N)-2.0*price(S0_, sigma_, interest_rate_,ttm_, N)) / (h*h);
 }
 
