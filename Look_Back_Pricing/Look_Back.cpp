@@ -14,7 +14,7 @@
 double look_back::price(double S, double sigma, double interest_rate, double ttm, unsigned int N) const
 {
 
-    // SI POTREBBE FARE UNA CLASSE PER CHECKARE LE EXCEPTION
+
     double payoff_sum=0;
     
     std::mt19937_64 gen(0);
