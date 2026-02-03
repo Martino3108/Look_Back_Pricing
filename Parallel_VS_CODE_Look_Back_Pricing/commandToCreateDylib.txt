@@ -1,0 +1,38 @@
+Command to obtain the .dylib file
+clang++ -std=c++20 -O3 -fPIC -dynamiclib \
+  Look_Back.cpp Date_Dealing.cpp LookBackDll.cpp \
+  -Xpreprocessor -fopenmp \
+  -I"$(brew --prefix libomp)/include" \
+  -L"$(brew --prefix libomp)/lib" \
+  -Wl,-rpath,"$(brew --prefix libomp)/lib" \
+  -lomp \
+  -Wl,-install_name,@rpath/libLookBack.dylib \
+  -o libLookBack.dylib
+
+
+
+Command to open the folder in which to put the .dylib file:
+open ~/Library/Containers/com.microsoft.Excel/Data/
+
+
+
+Set of commands to run on terminal in the excel data foder to make the dylib find the OpenMP Library
+
+To set the terminal in the correct folder 
+cd ~/Library/Containers/com.microsoft.Excel/Data/
+
+Copy the libomp.dylib in the same folder
+cp "/opt/homebrew/opt/libomp/lib/libomp.dylib" \
+   "/Users/NAME_OF_THE_USER/Library/Containers/com.microsoft.Excel/Data/"
+
+Now your library points to /opt/homebrew/.... We want @loader_path/libomp.dylib (i.e. “in the same folder as the library”).
+install_name_tool -change \
+  /opt/homebrew/opt/libomp/lib/libomp.dylib \
+  @loader_path/libomp.dylib \
+  "/Users/NAME_OF_THE_USER/Library/Containers/com.microsoft.Excel/Data/libLookBack.dylib"
+
+Verify
+otool -L "/Users/NAME_OF_THE_USER/Library/Containers/com.microsoft.Excel/Data/libLookBack.dylib"
+
+You must see: @loader_path/libomp.dylib
+

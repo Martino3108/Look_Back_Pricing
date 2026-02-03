@@ -23,8 +23,8 @@ int main(int argc, const char * argv[]) {
     
     Date value_date("01-01-2024"), maturity_date("01-01-2026"); // dd-mm-yyyy
     double ttm = yearFraction(value_date, maturity_date, DayCountConv::ACT_365F);
-    //std::cout<<"TTM with ACT_365F: "<<yearFraction(value_date, maturity_date, DayCountConv::ACT_365F)<<"\n";
-    //std::cout<<"TTM with ACT_ACT_ISDA: "<<yearFraction(value_date, maturity_date, DayCountConv::ACT_ACT_ISDA)<<"\n";
+    std::cout<<"TTM with ACT_365F: "<<yearFraction(value_date, maturity_date, DayCountConv::ACT_365F)<<"\n";
+    std::cout<<"TTM with ACT_ACT_ISDA: "<<yearFraction(value_date, maturity_date, DayCountConv::ACT_ACT_ISDA)<<"\n";
 
     
     look_back l(100, value_date, maturity_date, 0.2, 0.05, 'C', 0.01);
