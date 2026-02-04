@@ -21,7 +21,7 @@ int main(int argc, const char * argv[]) {
 
     auto t0 = clock::now();
     
-    Date value_date("01-01-2024"), maturity_date("01-01-2026"); // dd-mm-yyyy
+    Date value_date("03-01-2026"), maturity_date("03-01-2028"); // dd-mm-yyyy
     double ttm = yearFraction(value_date, maturity_date, DayCountConv::ACT_365F);
     std::cout<<"TTM with ACT_365F: "<<yearFraction(value_date, maturity_date, DayCountConv::ACT_365F)<<"\n";
     std::cout<<"TTM with ACT_ACT_ISDA: "<<yearFraction(value_date, maturity_date, DayCountConv::ACT_ACT_ISDA)<<"\n";

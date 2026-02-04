@@ -17,7 +17,7 @@ class Invalid_Parameters : public std::invalid_argument
 {
 public:
     explicit Invalid_Parameters(const std::string& msg)
-        : std::invalid_argument("Error financial parameter : " + msg) {}
+        : std::invalid_argument("Error financial parameter: " + msg) {}
     
 };
 
@@ -34,14 +34,14 @@ public:
             throw Invalid_Parameters("Volatility must be positive.");
             
         if (option != 'c' && option != 'p')
-            throw Invalid_Parameters("Option type can only be 'c' (Call) o 'p' (Put).");
+            throw Invalid_Parameters("Option type can only be 'c' (Call) or 'p' (Put).");
             
         if (interest_rate < 0)
-            throw Invalid_Parameters("Our model allows only for positive interest rates.");
+            throw Invalid_Parameters("Our model allows only positive interest rates.");
         if(ttm < 0)
-            throw Invalid_Parameters("end date < start date in yearFraction");
-        if(h<=0)
-            throw Invalid_Parameters("h must be positive");
+            throw Invalid_Parameters("maturity date < value date in yearFraction.");
+        if(h<0.005)
+            throw Invalid_Parameters("h must be positive and greater than 0.005.");
         
     }
 };
