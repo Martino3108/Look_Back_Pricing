@@ -9,6 +9,7 @@
 #define Invalid_Parameters_h
 
 #include <exception>
+#include <stdexcept>
 #include <string>
 
 
@@ -23,7 +24,7 @@ public:
 class Look_Back_Validator
 {
 public:
-    static void validate(double S0, double sigma, double interest_rate, char option, double ttm)
+    static void validate(double S0, double sigma, double interest_rate, char option, double ttm, double h)
     {
         
         if (S0 <= 0)
@@ -39,6 +40,8 @@ public:
             throw Invalid_Parameters("Our model allows only for positive interest rates.");
         if(ttm < 0)
             throw Invalid_Parameters("end date < start date in yearFraction");
+        if(h<=0)
+            throw Invalid_Parameters("h must be positive");
         
     }
 };

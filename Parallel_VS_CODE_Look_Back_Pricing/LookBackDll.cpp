@@ -20,10 +20,11 @@
 // --------------------
 static thread_local std::string g_lastErrorA;
 
-static void set_error_from_exception(const std::exception& e)
+static void set_error_from_exception(const char* where, const std::exception& e)
 {
-    g_lastErrorA = e.what() ? std::string(e.what()) : std::string("std::exception with null what()");
+    g_lastErrorA = std::string(where) + ": " + (e.what() ? e.what() : "std::exception with null what()");
 }
+
 
 static void set_error_a(const std::string& s)
 {
@@ -91,7 +92,7 @@ LB_API LB_Handle LB_CALL LB_CreateA(
     }
     catch (const std::exception& e)
     {
-        set_error_from_exception(e);
+        set_error_from_exception("LB_CreateA", e);
         return nullptr;
     }
     catch (...)
@@ -122,7 +123,7 @@ LB_API double LB_CALL LB_Price(LB_Handle h, double S, double sigma, double inter
         if (!h) { set_error_a("Null handle in LB_Price"); return 0.0; }
         return as_ptr(h)->price(S, sigma, interest_rate, maturity, N);
     }
-    catch (const std::exception& e) { set_error_from_exception(e); return 0.0; }
+    catch (const std::exception& e) { set_error_from_exception("LB_Price", e); return 0.0; }
     catch (...) { set_error_a("Unknown error in LB_Price"); return 0.0; }
 }
 
@@ -134,7 +135,7 @@ LB_API double LB_CALL LB_Delta(LB_Handle h, double S)
         if (!h) { set_error_a("Null handle in LB_Delta"); return 0.0; }
         return as_ptr(h)->delta(S);
     }
-    catch (const std::exception& e) { set_error_from_exception(e); return 0.0; }
+    catch (const std::exception& e) { set_error_from_exception("LB_Delta", e); return 0.0; }
     catch (...) { set_error_a("Unknown error in LB_Delta"); return 0.0; }
 }
 
@@ -146,7 +147,7 @@ LB_API double LB_CALL LB_Theta(LB_Handle h)
         if (!h) { set_error_a("Null handle in LB_Theta"); return 0.0; }
         return as_ptr(h)->theta();
     }
-    catch (const std::exception& e) { set_error_from_exception(e); return 0.0; }
+    catch (const std::exception& e) { set_error_from_exception("LB_Theta", e); return 0.0; }
     catch (...) { set_error_a("Unknown error in LB_Theta"); return 0.0; }
 }
 
@@ -158,7 +159,7 @@ LB_API double LB_CALL LB_Rho(LB_Handle h)
         if (!h) { set_error_a("Null handle in LB_Rho"); return 0.0; }
         return as_ptr(h)->rho();
     }
-    catch (const std::exception& e) { set_error_from_exception(e); return 0.0; }
+    catch (const std::exception& e) { set_error_from_exception("LB_Rho", e); return 0.0; }
     catch (...) { set_error_a("Unknown error in LB_Rho"); return 0.0; }
 }
 
@@ -170,7 +171,7 @@ LB_API double LB_CALL LB_Vega(LB_Handle h)
         if (!h) { set_error_a("Null handle in LB_Vega"); return 0.0; }
         return as_ptr(h)->vega();
     }
-    catch (const std::exception& e) { set_error_from_exception(e); return 0.0; }
+    catch (const std::exception& e) { set_error_from_exception("LB_Vega", e); return 0.0; }
     catch (...) { set_error_a("Unknown error in LB_Vega"); return 0.0; }
 }
 
@@ -182,7 +183,7 @@ LB_API double LB_CALL LB_Gamma(LB_Handle h)
         if (!h) { set_error_a("Null handle in LB_Gamma"); return 0.0; }
         return as_ptr(h)->gamma();
     }
-    catch (const std::exception& e) { set_error_from_exception(e); return 0.0; }
+    catch (const std::exception& e) { set_error_from_exception("LB_Gamma", e); return 0.0; }
     catch (...) { set_error_a("Unknown error in LB_Gamma"); return 0.0; }
 }
 
@@ -207,7 +208,7 @@ LB_API int LB_CALL LB_GraphicPrice(LB_Handle h, double dx, double* x_out, double
         }
         return k;
     }
-    catch (const std::exception& e) { set_error_from_exception(e); return 0; }
+    catch (const std::exception& e) { set_error_from_exception("LB_GraphicPrice", e); return 0; }
     catch (...) { set_error_a("Unknown error in LB_GraphicPrice"); return 0; }
 }
 
@@ -232,7 +233,7 @@ LB_API int LB_CALL LB_GraphicDelta(LB_Handle h, double dx, double* x_out, double
         }
         return k;
     }
-    catch (const std::exception& e) { set_error_from_exception(e); return 0; }
+    catch (const std::exception& e) { set_error_from_exception("LB_GraphicDelta", e); return 0; }
     catch (...) { set_error_a("Unknown error in LB_GraphicDelta"); return 0; }
 }
 
@@ -262,7 +263,7 @@ LB_API double LB_CALL LB_GetYearFraction(const char* start_date, const char* end
     }
     catch (const std::exception& e)
     {
-        set_error_from_exception(e);
+        set_error_from_exception("LB_GetYearFraction", e);
         return 0.0;
     }
     catch (...)

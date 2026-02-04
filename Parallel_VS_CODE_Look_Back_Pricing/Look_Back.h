@@ -39,7 +39,7 @@ public:
     :  S0_(S0), value_date_(value_date), maturity_date_(maturity_date), ttm_(yearFraction(value_date, maturity_date, ddc)), sigma_(sigma), interest_rate_(interest_rate), option_(std::tolower(option)), h_(h)
     
     {
-        Look_Back_Validator::validate(S0_, sigma_, interest_rate_, option_, ttm_);
+        Look_Back_Validator::validate(S0_, sigma_, interest_rate_, option_, ttm_, h_);
     }
 
     
