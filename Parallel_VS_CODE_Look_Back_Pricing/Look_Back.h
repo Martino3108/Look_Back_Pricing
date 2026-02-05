@@ -57,20 +57,34 @@ typedef std::vector<double> vect;
 
 /**
  * @class look_back
- * @brief Monte Carlo lookback option pricer with finite-difference Greeks.
+ * @brief Monte Carlo pricer for lookback options.
  *
  * @details
- * This class stores contract and market inputs and provides pricing/Greek methods.
- * Dates are converted into a time-to-maturity (`ttm_`) via `yearFraction()`.
+ * This class implements a Monte Carlo pricing algorithm for lookback options,
+ * where the payoff depends on the running maximum of the underlying process.
  *
- * Notes:
- * - `option_` is normalized to lowercase ('c' or 'p').
- * - The constructor validates inputs via `Look_Back_Validator::validate()`.
- * - Some methods infer Monte Carlo sample size from the finite-difference step.
+ * The pricing methodology follows the approach described in
+ * Stéphane Crépey (2013), Section 6.9, and is based on an exact simulation of the
+ * joint distribution of the discretized process and its running maximum.
+ *
+ * Let \f$X_t\f$ denote the log-price process and
+ * \f$M_t = \sup_{0 \le s \le t} X_s\f$ its running maximum.
+ * Given an Euler discretization \f$\hat{X}\f$, the conditional law of the
+ * maximum on each interval is sampled using an independent uniform random
+ * variable, as stated in Paragraph 6.9.1.1 Black–Scholes Case.
+ *
+ * This approach significantly reduces the discretization bias typically
+ * encountered when approximating path-dependent extrema.
+ *
+ * @note
+ * The numerical scheme implemented here is valid under the assumptions
+ * described in the reference (diffusion dynamics with continuous paths).
  *
  * @warning
- * The internal numerical choices (e.g., `N = 1 / h^4`) can explode computational cost.
+ * The Monte Carlo cost can be high, as the simulation of the running maximum
+ * is performed at each time step and for each path.
  */
+
 class look_back
 {
     
@@ -110,7 +124,38 @@ public:
     }
 
     
-    /** @brief Monte Carlo price estimate (discounted). */
+    /**
+     * @brief Prices a lookback option using Monte Carlo simulation.
+     *
+     * @details
+     * The option price is computed as the discounted expectation of the payoff
+     * \f$\phi(X_T, M_T)\f$, where \f$M_T = \sup_{0 \le t \le T} X_t\f$.
+     *
+     * The simulation of the pair \f$(X_T, M_T)\f$ follows the algorithm described in
+     * Stéphane Crépey (2013), Section 6.9, using:
+     * - an Euler discretization for the underlying process, and
+     * - an exact conditional sampling of the running maximum on each time interval
+     *   via an auxiliary uniform random variable.
+     *
+     * This avoids the bias that would arise from approximating the maximum by
+     * discrete-time sampling alone.
+     *
+     * @param S Spot price at which the option is priced.
+     * @param sigma Volatility parameter.
+     * @param interest_rate Risk-free interest rate.
+     * @param maturity Time to maturity (in years).
+     * @param N Number of Monte Carlo paths.
+     *
+     * @return Discounted Monte Carlo estimate of the option price.
+     *
+     * @see Stéphane Crépey, "Financial Modeling: A Backward Stochastic Differential Equations Perspective", Section 6.9.
+     *
+     * @note
+     * This implementation is a direct numerical realization of a published
+     * Monte Carlo method and does not claim originality with respect to the
+     * underlying mathematical results.
+     */
+
     double price(double S, double sigma, double interest_rate, double maturity, unsigned int N = 5000000) const;
     
     /** @brief Delta via central finite difference in spot. */

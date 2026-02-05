@@ -46,7 +46,7 @@ double look_back::price(double S, double sigma, double interest_rate, double ttm
             {
                 const double Z = gaussian(gen);
 
-                // variabili LOCALI (niente data race)
+                // local variables: no data race
                 const double log_simulation_plus  = logs + mu - sigma * rad * Z;
                 const double log_simulation_minus = logs + mu + sigma * rad * Z;
 
@@ -61,7 +61,7 @@ double look_back::price(double S, double sigma, double interest_rate, double ttm
                 double rad1 = d1*d1 - 2.0 * sigma*sigma * ttm * std::log(1-U1);
                 double rad2 = d2*d2 - 2.0 * sigma*sigma * ttm * std::log(1-U2);
 
-                // protezione numerica: mai sotto zero
+                // numerical protection: never below zero
                 rad1 = std::max(0.0, rad1);
                 rad2 = std::max(0.0, rad2);
 
@@ -79,7 +79,7 @@ double look_back::price(double S, double sigma, double interest_rate, double ttm
             {
                 const double Z = gaussian(gen);
 
-                // variabili LOCALI (niente data race)
+                // local variables: no data race
                 const double log_simulation_plus  = logs + mu - sigma * rad * Z;
                 const double log_simulation_minus = logs + mu + sigma * rad * Z;
 
@@ -94,7 +94,7 @@ double look_back::price(double S, double sigma, double interest_rate, double ttm
                 double rad1 = d1*d1 - 2.0 * sigma*sigma * ttm * std::log(1.0 - U1);
                 double rad2 = d2*d2 - 2.0 * sigma*sigma * ttm * std::log(1.0 - U2);
 
-                // protezione numerica: mai sotto zero
+                // numerical protection: never below zero
                 rad1 = std::max(0.0, rad1);
                 rad2 = std::max(0.0, rad2);
 
