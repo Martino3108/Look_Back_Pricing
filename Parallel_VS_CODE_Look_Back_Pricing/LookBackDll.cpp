@@ -1,3 +1,23 @@
+/**
+ * @file LookBackDll.cpp
+ * @brief C ABI implementation for the LookBack pricer dynamic library.
+ *
+ * @details
+ * This translation unit implements the exported C functions declared in
+ * LookBackDll.h. It is responsible for:
+ * - Translating primitive ABI inputs into C++ objects (`Date`, `look_back`).
+ * - Enforcing ABI safety (null checks, handle checks).
+ * - Catching exceptions and exposing error messages through a thread-local
+ *   "last error" mechanism (`LB_GetLastErrorA`).
+ *
+ * Thread-safety:
+ * - Error state is stored in a `thread_local` string, so different threads do not
+ *   overwrite each other’s last error message.
+ *
+ * Important:
+ * - The exported functions MUST NOT throw across the ABI boundary.
+ */
+
 #include "LookBackDll.h"
 
 #include <string>
@@ -6,7 +26,6 @@
 #include <exception>
 #include <cstring>   // memcpy
 
-// Include i tuoi header originali
 #include "Look_Back.h"
 #include "Date_Dealing.h"
 #include "Invalid_Parameters.h"
@@ -15,9 +34,7 @@
   #include <windows.h>
 #endif
 
-// --------------------
-// Last error (thread-local)
-// --------------------
+/** @brief Thread-local buffer storing the last error message for the calling thread. */
 static thread_local std::string g_lastErrorA;
 
 static void set_error_from_exception(const char* where, const std::exception& e)
@@ -53,10 +70,6 @@ static look_back* as_ptr(LB_Handle h)
 {
     return reinterpret_cast<look_back*>(h);
 }
-
-// --------------------
-// Exports (Mac-friendly: char*)
-// --------------------
 
 LB_API LB_Handle LB_CALL LB_CreateA(
     double S0,
@@ -239,7 +252,7 @@ LB_API int LB_CALL LB_GraphicDelta(LB_Handle h, double dx, double* x_out, double
 
 LB_API double LB_CALL LB_GetYearFraction(const char* start_date, const char* end_date, int day_count_conv)
 {
-    clear_error(); // Pulisce eventuali errori precedenti
+    clear_error(); // Clear previous error
     try
     {
         if (!start_date || !end_date) {
@@ -247,18 +260,17 @@ LB_API double LB_CALL LB_GetYearFraction(const char* start_date, const char* end
             return 0.0;
         }
 
-        // 1. Convertiamo char* (VBA) in std::string
+        // Convert char* (VBA) to std::string
         std::string s(start_date);
         std::string e(end_date);
 
-        // 2. Creiamo gli oggetti Date (usando la tua struct in Date_Dealing.h)
+        // Create Date objects (using the struct in Date_Dealing.h)
         Date dStart(s);
         Date dEnd(e);
 
-        // 3. Mappiamo l'intero di VBA al tuo enum class DayCountConv
+        // Map int from VBA to the DayCountConv enum class
         DayCountConv dc = map_ddc(day_count_conv);
 
-        // 4. Chiamiamo la TUA funzione C++ originale
         return yearFraction(dStart, dEnd, dc);
     }
     catch (const std::exception& e)
