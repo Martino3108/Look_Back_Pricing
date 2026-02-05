@@ -42,7 +42,7 @@ public:
  * - option in {'c','p'}
  * - ttm >= 0
  * - h >= 0.005
- *
+ * - h < 1
  * @throws Invalid_Parameters on first violated rule.
  */
 class Look_Back_Validator
@@ -66,6 +66,8 @@ public:
             throw Invalid_Parameters("maturity date < value date in yearFraction.");
         if(h<0.005)
             throw Invalid_Parameters("h must be positive and greater than 0.005.");
+        if(h>=1)
+            throw Invalid_Parameters("h bigger than one => M smaller than one.");
         
     }
 };

@@ -61,10 +61,6 @@ double look_back::price(double S, double sigma, double interest_rate, double ttm
                 double rad1 = d1*d1 - 2.0 * sigma*sigma * ttm * std::log(1-U1);
                 double rad2 = d2*d2 - 2.0 * sigma*sigma * ttm * std::log(1-U2);
 
-                // numerical protection: never below zero
-                rad1 = std::max(0.0, rad1);
-                rad2 = std::max(0.0, rad2);
-
                 const double min_plus  = std::exp(0.5*(logs + log_simulation_plus ) - 0.5*std::sqrt(rad1));
                 const double min_minus = std::exp(0.5*(logs + log_simulation_minus) - 0.5*std::sqrt(rad2));
 
@@ -93,10 +89,6 @@ double look_back::price(double S, double sigma, double interest_rate, double ttm
 
                 double rad1 = d1*d1 - 2.0 * sigma*sigma * ttm * std::log(1.0 - U1);
                 double rad2 = d2*d2 - 2.0 * sigma*sigma * ttm * std::log(1.0 - U2);
-
-                // numerical protection: never below zero
-                rad1 = std::max(0.0, rad1);
-                rad2 = std::max(0.0, rad2);
 
                 const double max_plus  = std::exp(0.5*(logs + log_simulation_plus ) + 0.5*std::sqrt(rad1));
                 const double max_minus = std::exp(0.5*(logs + log_simulation_minus) + 0.5*std::sqrt(rad2));
@@ -148,7 +140,7 @@ double look_back::rho() const
 
 double look_back::theta() const
 {
-    double day=(7.0/365.0);
+    double day=(3.0/365.0);
     unsigned int N =1/(std::pow(day, 4));
     return (price(S0_, sigma_, interest_rate_, ttm_-day,N) - price(S0_, sigma_, interest_rate_, ttm_+day, N))/ (2.0*day);
 }
