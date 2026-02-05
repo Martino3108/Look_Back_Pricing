@@ -1,9 +1,15 @@
-//
-//  invalid_parameters.h
-//  Projet_informatique
-//
-//  Created by Martino Arena on 24/01/26.
-//
+/**
+ * @file Invalid_Parameters.h
+ * @brief Validation helpers and domain-specific exceptions for financial inputs.
+ *
+ * @details
+ * Provides:
+ * - `Invalid_Parameters`: exception thrown when financial or numerical inputs are invalid.
+ * - `Look_Back_Validator`: centralized validation logic used by the `look_back` constructor.
+ *
+ * @note
+ * The ABI bridge catches these exceptions and exposes the message via `LB_GetLastErrorA()`.
+ */
 
 #ifndef Invalid_Parameters_h
 #define Invalid_Parameters_h
@@ -12,7 +18,10 @@
 #include <stdexcept>
 #include <string>
 
-
+/**
+ * @class Invalid_Parameters
+ * @brief Exception type for invalid financial/numerical parameters.
+ */
 class Invalid_Parameters : public std::invalid_argument
 {
 public:
@@ -21,6 +30,21 @@ public:
     
 };
 
+/**
+ * @class Look_Back_Validator
+ * @brief Static validation rules for lookback pricer construction.
+ *
+ * @details
+ * Enforces constraints such as:
+ * - S0 > 0
+ * - sigma > 0
+ * - interest_rate >= 0
+ * - option in {'c','p'}
+ * - ttm >= 0
+ * - h >= 0.005
+ *
+ * @throws Invalid_Parameters on first violated rule.
+ */
 class Look_Back_Validator
 {
 public:
