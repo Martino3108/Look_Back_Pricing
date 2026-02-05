@@ -2,6 +2,10 @@
  * @file Look_Back.h
  * @brief Core C++ lookback option pricer interface.
  *
+ * @author
+ * Vincenzo Martino Pio Arena
+ * Marco De Luca
+ * 
  * @details
  * Defines the `look_back` class which encapsulates contract inputs (dates, option type),
  * market parameters (sigma, rate), and numerical controls for Greeks (finite-difference step).
