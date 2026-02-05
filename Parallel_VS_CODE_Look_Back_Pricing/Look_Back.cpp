@@ -1,9 +1,18 @@
-//
-//  Look_Back.cpp
-//  Projet_informatique
-//
-//  Created by Martino Arena on 27/12/25.
-//
+/**
+ * @file Look_Back.cpp
+ * @brief Implementation of Monte Carlo pricing and finite-difference Greeks for lookback options.
+ *
+ * @details
+ * The pricing method uses OpenMP to parallelize Monte Carlo draws. Each thread uses
+ * its own RNG instance seeded deterministically from the thread id to prevent data races.
+ *
+ * Numerical notes:
+ * - Antithetic variates are used (plus/minus Z).
+ * - Uniform draws are clamped to avoid log(0).
+ *
+ * @warning
+ * Some Greeks infer the Monte Carlo sample size as N = 1/h^4, which can become huge.
+ */
 
 #include "Look_Back.h"
 #include <algorithm>
