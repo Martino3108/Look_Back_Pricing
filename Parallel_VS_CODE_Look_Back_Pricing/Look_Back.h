@@ -16,6 +16,28 @@
  * - The ABI bridge (LookBackDll.cpp) is responsible for catching and reporting them.
  */
 
+/**
+ * @section references References
+ *
+ * The Monte Carlo simulation of the running maximum used in this library
+ * follows the methodology described in:
+ *
+ *   Stéphane Crépey,
+ *   "Financial Modeling: A Backward Stochastic Differential Equations Perspective",
+ *   Springer, 2013.
+ *
+ * In particular, the simulation of the joint law of
+ * \f$(X_T, M_T)\f$ for lookback options is based on:
+ *
+ * - Section 6.9 Monte Carlo Methods for Exotic Options
+ * - Subsection 6.9.1 "Lookback Options"
+ * - Paragraph 6.9.1.1 Black–Scholes Case
+ *
+ * where the conditional distribution of the maximum over each time interval
+ * is sampled using an auxiliary uniform random variable as in equation (6.20).
+ */
+
+
 /** @defgroup LB_Core Core (C++)
  *  @brief Core pricing logic (C++ exceptions allowed).
  *  @{
@@ -53,7 +75,7 @@ class look_back
 {
     
 private:
-    mutable std::mt19937_64 gen_; // generatore che si usa su monte carlo, dato da opinioni generiche online
+    mutable std::mt19937_64 gen_;
     double S0_;
     
     Date value_date_;
