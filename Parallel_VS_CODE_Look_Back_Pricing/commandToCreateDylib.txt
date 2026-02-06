@@ -37,3 +37,8 @@ otool -L "/Users/NAME_OF_THE_USER/Library/Containers/com.microsoft.Excel/Data/li
 
 You must see: @loader_path/libomp.dylib
 
+Command to create Doxygen file to execute in the folder library:
+
+doxygen Doxyfile
+open html/index.html
+

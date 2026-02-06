@@ -1,0 +1,5 @@
+<map id="LookBackDll.h" name="LookBackDll.h">
+<area shape="rect" id="Node000001" title="C ABI wrapper for the LookBack pricer (Excel/VBA&#45;friendly)." alt="" coords="12,5,119,31"/>
+<area shape="rect" id="Node000002" href="$_look_back_dll_8cpp.html" title="C ABI implementation for the LookBack pricer dynamic library." alt="" coords="5,79,126,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,45,68,79,63,78,64,48"/>
+</map>

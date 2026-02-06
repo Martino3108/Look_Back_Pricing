@@ -1,0 +1,6 @@
+\_form#0=53x14:$(X_T, M_T)$
+\_form#1=15x13:$X_t$
+\_form#2=99x15:$M_t = \sup_{0 \le s \le t} X_s$
+\_form#3=13x13:$\hat{X}$
+\_form#4=60x14:$\phi(X_T, M_T)$
+\_form#5=104x15:$M_T = \sup_{0 \le t \le T} X_t$

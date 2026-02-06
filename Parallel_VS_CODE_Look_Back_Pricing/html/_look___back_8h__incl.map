@@ -1,0 +1,21 @@
+<map id="Look_Back.h" name="Look_Back.h">
+<area shape="rect" id="Node000001" title="Core C++ lookback option pricer interface." alt="" coords="140,5,238,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,77,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,34,81,74,79,69,165,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="101,79,165,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,29,154,68,150,65,178,33"/>
+<area shape="rect" id="Node000004" href="$_date___dealing_8h.html" title="Date parsing and year&#45;fraction computation (day&#45;count conventions)." alt="" coords="189,79,301,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="199,29,229,67,224,67,197,34"/>
+<area shape="rect" id="Node000008" href="$_invalid___parameters_8h.html" title="Validation helpers and domain&#45;specific exceptions for financial inputs." alt="" coords="325,79,469,105"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="225,29,350,73,345,75,224,34"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="164,153,224,178"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="239,104,213,142,210,138,234,106"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="249,153,302,178"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="252,103,267,139,262,137,249,107"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="326,153,404,178"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="266,103,334,144,329,144,265,108"/>
+<area shape="poly" id="edge10_Node000008_Node000006" title=" " alt="" coords="379,105,311,147,308,142,374,106"/>
+<area shape="poly" id="edge9_Node000008_Node000007" title=" " alt="" coords="394,103,378,140,375,136,389,106"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="428,153,505,178"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="409,102,447,142,442,141,407,107"/>
+</map>
