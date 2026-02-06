@@ -67,7 +67,7 @@ public:
         if(h<0.005)
             throw Invalid_Parameters("h must be positive and greater than 0.005.");
         if(h>=1)
-            throw Invalid_Parameters("h bigger than one => M smaller than one.");
+            throw Invalid_Parameters("h bigger than one => M smaller than one. h needs to be less than one.");
         
     }
 };
