@@ -61,6 +61,9 @@ double look_back::price(double S, double sigma, double interest_rate, double ttm
                 double rad1 = d1*d1 - 2.0 * sigma*sigma * ttm * std::log(1-U1);
                 double rad2 = d2*d2 - 2.0 * sigma*sigma * ttm * std::log(1-U2);
 
+                rad1 = std::max(0.0, rad1);
+                rad2 = std::max(0.0, rad2);
+
                 const double min_plus  = std::exp(0.5*(logs + log_simulation_plus ) - 0.5*std::sqrt(rad1));
                 const double min_minus = std::exp(0.5*(logs + log_simulation_minus) - 0.5*std::sqrt(rad2));
 
@@ -89,6 +92,9 @@ double look_back::price(double S, double sigma, double interest_rate, double ttm
 
                 double rad1 = d1*d1 - 2.0 * sigma*sigma * ttm * std::log(1.0 - U1);
                 double rad2 = d2*d2 - 2.0 * sigma*sigma * ttm * std::log(1.0 - U2);
+
+                rad1 = std::max(0.0, rad1);
+                rad2 = std::max(0.0, rad2);
 
                 const double max_plus  = std::exp(0.5*(logs + log_simulation_plus ) + 0.5*std::sqrt(rad1));
                 const double max_minus = std::exp(0.5*(logs + log_simulation_minus) + 0.5*std::sqrt(rad2));
@@ -163,7 +169,7 @@ std::array<vect,2> look_back::graphic_price(double dx) const
     for(double s=0; s<2*S0_; s+=dx*S0_)
     {
         graph[0].push_back(s);
-        graph[1].push_back(price(s, sigma_, interest_rate_, ttm_, 1000000));
+        graph[1].push_back(price(s, sigma_, interest_rate_, ttm_));
     }
     return graph;
 }
