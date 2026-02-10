@@ -17,6 +17,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -28,6 +35,7 @@
   <td id="projectalign">
    <div id="projectname">LookBack Pricing Library
    </div>
+   <div id="projectbrief">University project: Monte Carlo pricing of lookback options (GBM), based on Crépey (2013).</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +100,7 @@ $(function(){initNavTree('md__b_u_i_l_d_i_n_g.html','',''); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md0"></a></p>
-<p>This document describes how to <b>build</b>, <b>install</b>, and <b>distribute</b> the <span class="tt">libLookBack.dylib</span> dynamic library on macOS, with special attention to <b>Microsoft Excel sandboxing</b> and <b>professional distribution (codesigning + notarization)</b>.</p>
+<p>This document describes how to <b>build</b>, <b>install</b>, and <b>distribute</b> the <span class="tt">libLookBack.dylib</span> dynamic library on macOS, with special attention to <b>Microsoft Excel sandboxing</b> and <b>distribution (codesigning + notarization)</b>.</p>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
 1. Requirements</h1>

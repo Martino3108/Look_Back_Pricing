@@ -2,7 +2,7 @@ var indexSectionsWithContent =
 {
   0: "123abcdefgilmnoprstvy ",
   1: "dil",
-  2: "bdil",
+  2: "bdilr",
   3: "dgilprtvy",
   4: "d",
   5: "lv",
@@ -10,7 +10,7 @@ var indexSectionsWithContent =
   7: "alt",
   8: "l",
   9: "abc",
-  10: "123abcdefilmnorstv "
+  10: "123abcdefilmnoprstv "
 };
 
 var indexSectionNames =

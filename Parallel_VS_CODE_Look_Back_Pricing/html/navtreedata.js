@@ -25,6 +25,20 @@
 var NAVTREE =
 [
   [ "LookBack Pricing Library", "index.html", [
+    [ "Overview", "index.html#autotoc_md14", null ],
+    [ "Objectives of the Project", "index.html#autotoc_md16", null ],
+    [ "Financial Model", "index.html#autotoc_md18", null ],
+    [ "Numerical Method", "index.html#autotoc_md20", null ],
+    [ "Project Structure", "index.html#autotoc_md22", null ],
+    [ "Build Instructions", "index.html#autotoc_md24", [
+      [ "Requirements", "index.html#autotoc_md25", null ],
+      [ "Compilation Example", "index.html#autotoc_md26", null ]
+    ] ],
+    [ "VBA Interface and DLL Path Configuration", "index.html#autotoc_md28", null ],
+    [ "Documentation", "index.html#autotoc_md30", null ],
+    [ "References", "index.html#autotoc_md32", null ],
+    [ "Authors", "index.html#autotoc_md34", null ],
+    [ "Notes", "index.html#autotoc_md36", null ],
     [ "Building and Distributing LookBack Dynamic Library (macOS)", "md__b_u_i_l_d_i_n_g.html", [
       [ "1. Requirements", "md__b_u_i_l_d_i_n_g.html#autotoc_md2", [
         [ "System", "md__b_u_i_l_d_i_n_g.html#autotoc_md3", null ],

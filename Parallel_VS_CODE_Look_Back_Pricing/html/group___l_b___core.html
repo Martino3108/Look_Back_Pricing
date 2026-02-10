@@ -17,6 +17,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -28,6 +35,7 @@
   <td id="projectalign">
    <div id="projectname">LookBack Pricing Library
    </div>
+   <div id="projectbrief">University project: Monte Carlo pricing of lookback options (GBM), based on Crépey (2013).</div>
   </td>
  </tr>
  </tbody>
@@ -111,7 +119,7 @@ Typedefs</h2></td></tr>
 References</h1>
 <p>The Monte Carlo simulation of the running maximum used in this library follows the methodology described in:</p>
 <p>Stéphane Crépey, "Financial Modeling: A Backward Stochastic Differential Equations Perspective", Springer, 2013.</p>
-<p>In particular, the simulation of the joint law of <picture><source srcset="form_0_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$(X_T, M_T)$" src="form_0.png" width="53" height="14"/></picture> for lookback options is based on:</p>
+<p>In particular, the simulation of the joint law of \((X_T, M_T)\) for lookback options is based on:</p>
 <ul>
 <li>Section 6.9 Monte Carlo Methods for Exotic Options</li>
 <li>Subsection 6.9.1 "Lookback Options"</li>

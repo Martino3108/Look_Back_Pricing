@@ -22,13 +22,14 @@ var searchData=
   ['lb_5fthirty_5f360_5feu_19',['LB_THIRTY_360_EU',['../group___l_b___bridge.html#ggabae82c30a9e98db678becc60139bc826af64684c7ab374874b7e84155c7e3f186',1,'LookBackDll.h']]],
   ['lb_5fthirty_5f360_5fus_20',['LB_THIRTY_360_US',['../group___l_b___bridge.html#ggabae82c30a9e98db678becc60139bc826a3dde758dd094e8ca9158b4b5081dddcf',1,'LookBackDll.h']]],
   ['lb_5fvega_21',['LB_Vega',['../group___l_b___bridge.html#ga93d7158cf821ee0496e48ea5362030cd',1,'LB_Vega(LB_Handle h):&#160;LookBackDll.cpp'],['../group___l_b___bridge.html#ga93d7158cf821ee0496e48ea5362030cd',1,'LB_Vega(LB_Handle h):&#160;LookBackDll.cpp']]],
-  ['library_22',['2. Building the Dynamic Library',['../md__b_u_i_l_d_i_n_g.html#autotoc_md5',1,'']]],
+  ['library_22',['Library',['../md__b_u_i_l_d_i_n_g.html#autotoc_md5',1,'2. Building the Dynamic Library'],['../index.html',1,'LookBack Pricing Library']]],
   ['library_20macos_23',['Building and Distributing LookBack Dynamic Library (macOS)',['../md__b_u_i_l_d_i_n_g.html',1,'']]],
   ['look_5fback_24',['look_back',['../classlook__back.html',1,'look_back'],['../classlook__back.html#a77581ae50ade2151dc7078cf0d1600b7',1,'look_back::look_back()']]],
   ['look_5fback_2ecpp_25',['Look_Back.cpp',['../_look___back_8cpp.html',1,'']]],
   ['look_5fback_2eh_26',['Look_Back.h',['../_look___back_8h.html',1,'']]],
   ['look_5fback_5fvalidator_27',['Look_Back_Validator',['../class_look___back___validator.html',1,'']]],
   ['lookback_20dynamic_20library_20macos_28',['Building and Distributing LookBack Dynamic Library (macOS)',['../md__b_u_i_l_d_i_n_g.html',1,'']]],
-  ['lookbackdll_2ecpp_29',['LookBackDll.cpp',['../_look_back_dll_8cpp.html',1,'']]],
-  ['lookbackdll_2eh_30',['LookBackDll.h',['../_look_back_dll_8h.html',1,'']]]
+  ['lookback_20pricing_20library_29',['LookBack Pricing Library',['../index.html',1,'']]],
+  ['lookbackdll_2ecpp_30',['LookBackDll.cpp',['../_look_back_dll_8cpp.html',1,'']]],
+  ['lookbackdll_2eh_31',['LookBackDll.h',['../_look_back_dll_8h.html',1,'']]]
 ];
