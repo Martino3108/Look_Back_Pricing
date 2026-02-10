@@ -37,8 +37,7 @@ int main(int argc, const char * argv[]) {
     std::cout<<"Gamma: "<<l.gamma()<<std::endl;
     std::array<vect, 2> g1=l.graphic_price(0.1);
     std::array<vect, 2> g2=l.graphic_delta(0.1);
-    
-    
+      
     auto t1 = clock::now();
 
     std::chrono::duration<double> dt = t1 - t0; // secondi (double)
