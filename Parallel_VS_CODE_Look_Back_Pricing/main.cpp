@@ -21,7 +21,7 @@ int main(int argc, const char * argv[]) {
 
     auto t0 = clock::now();
     
-    Date value_date("03-01-2026"), maturity_date("03-01-2027"); // dd-mm-yyyy
+    Date value_date("01-01-2025"), maturity_date("01-01-2030"); // dd-mm-yyyy
     double ttm = yearFraction(value_date, maturity_date, DayCountConv::ACT_365F);
     std::cout<<"TTM with ACT_365F: "<<yearFraction(value_date, maturity_date, DayCountConv::ACT_365F)<<"\n";
     std::cout<<"TTM with ACT_ACT_ISDA: "<<yearFraction(value_date, maturity_date, DayCountConv::ACT_ACT_ISDA)<<"\n";
@@ -29,7 +29,7 @@ int main(int argc, const char * argv[]) {
     
     look_back l(100, value_date, maturity_date, 0.2, 0.05, 'C', 0.01);
     
-    std::cout<<"Price: "<<l.price(100, 0.2, 0.05, ttm)<<std::endl;
+    std::cout<<"Price: "<<l.price(100, 0.2, 0.05, ttm, 500000000)<<std::endl;
     std::cout<<"Delta: "<<l.delta(100)<<std::endl;
     std::cout<<"Rho: "<<l.rho()<<std::endl;
     std::cout<<"Vega: "<<l.vega()<<std::endl;
