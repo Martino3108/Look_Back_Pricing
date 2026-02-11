@@ -33,9 +33,6 @@
  * - Section 6.9 Monte Carlo Methods for Exotic Options
  * - Subsection 6.9.1 "Lookback Options"
  * - Paragraph 6.9.1.1 Black–Scholes Case
- *
- *
- * 
  */
 
 
