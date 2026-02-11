@@ -32,7 +32,7 @@ The pricing methodology implemented in this project is based on a **continuous-t
 
 Let $X_t$ denote a one-dimensional diffusion process defined on the time interval $[0,T]$, satisfying the stochastic differential equation:
 
-$$dX_t = b \, dt + \sigma \, dW_t,$$
+$$dX_t = b \ dt + \sigma \, dW_t,$$
 
 where $W_t$ is a standard Brownian motion. This dynamics corresponds to the explicit solution of the Black-Scholes model (applied to log-prices).
 The associated running maximum process is defined as:
