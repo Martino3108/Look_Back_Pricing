@@ -30,15 +30,12 @@
  *   "Financial Modeling: A Backward Stochastic Differential Equations Perspective",
  *   Springer, 2013.
  *
- * In particular, the simulation of the joint law of
- * \f$(X_T, M_T)\f$ for lookback options is based on:
- *
  * - Section 6.9 Monte Carlo Methods for Exotic Options
  * - Subsection 6.9.1 "Lookback Options"
  * - Paragraph 6.9.1.1 Black–Scholes Case
  *
- * where the conditional distribution of the maximum over each time interval
- * is sampled using an auxiliary uniform random variable as in equation (6.20).
+ *
+ * 
  */
 
 
