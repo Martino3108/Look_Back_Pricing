@@ -30,7 +30,7 @@ This project was developed with the following educational objectives:
 
 The pricing methodology implemented in this project is based on a **continuous-time stochastic framework**, following the exact simulation of lookback options as presented in Crépey (2013).
 
-Let \f$X_t\f$ denote a one-dimensional diffusion process defined on the time interval \f$[0,T]\f$, satisfying the stochastic differential equation:
+Let $X_t$ denote a one-dimensional diffusion process defined on the time interval $[0,T]$, satisfying the stochastic differential equation:
 
 $$dX_t = b \ dt + \sigma \, dW_t,$$
 
@@ -39,11 +39,11 @@ The associated running maximum process is defined as:
 
 $$M_t = \sup_{0 \le s \le t} X_s.$$
 
-A lookback option payoff is written in the general form \f$\phi(X_T, M_T)\f$.
+A lookback option payoff is written in the general form $\phi(X_T, M_T)$.
 
-Since the model assumes constant coefficients, the SDE admits a **closed-form solution**. Therefore, the Monte Carlo pricing procedure does not require a time-discretized approximation. Instead, it relies on the **exact simulation of the joint law** of the terminal value and the running maximum, \f$(X_T, M_T)\f$.
+Since the model assumes constant coefficients, the SDE admits a **closed-form solution**. Therefore, the Monte Carlo pricing procedure does not require a time-discretized approximation. Instead, it relies on the **exact simulation of the joint law** of the terminal value and the running maximum, $(X_T, M_T)$.
 
-Specifically, the terminal value \f$X_T\f$ is simulated directly from its Gaussian distribution. Conditioned on the value of \f$X_T\f$, the running maximum \f$M_T\f$ follows a known distribution (derived from the reflection principle for Brownian motion with drift), which can be sampled exactly using an auxiliary independent uniform random variable.
+Specifically, the terminal value $X_T$ is simulated directly from its Gaussian distribution. Conditioned on the value of $X_T$, the running maximum $M_T$ follows a known distribution (derived from the reflection principle for Brownian motion with drift), which can be sampled exactly using an auxiliary independent uniform random variable.
 
 This approach preserves the **continuous-time nature of the maximum process** without any discretization bias, ensuring high accuracy and computational efficiency within the Monte Carlo framework.
 
