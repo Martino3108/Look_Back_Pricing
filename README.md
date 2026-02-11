@@ -160,7 +160,7 @@ In particular, the Monte Carlo simulation of lookback options follows the method
 * Subsection 6.9.1.1: *Black–Scholes Case*
 
 The simulation of the joint distribution of the terminal log-price and its running maximum,
-$ (X_T, M_T) $, is performed by sampling the conditional distribution of the maximum over each time interval using an auxiliary uniform random variable, as described in equation (6.20) of the reference.
+$(X_T, M_T)$, is performed by sampling the conditional distribution of the maximum over each time interval using an auxiliary uniform random variable, as described in equation (6.20) of the reference.
 
 This reference provides the sole theoretical foundation for the pricing methodology implemented in the library.
 
