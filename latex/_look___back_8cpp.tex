@@ -1,0 +1,36 @@
+\doxysection{Look\+\_\+\+Back.\+cpp File Reference}
+\hypertarget{_look___back_8cpp}{}\label{_look___back_8cpp}\index{Look\_Back.cpp@{Look\_Back.cpp}}
+
+
+Implementation of Monte Carlo pricing and finite-\/difference Greeks for lookback options.  
+
+
+{\ttfamily \+\#include "{}Look\+\_\+\+Back.\+h"{}}\newline
+{\ttfamily \+\#include $<$algorithm$>$}\newline
+{\ttfamily \+\#include $<$random$>$}\newline
+{\ttfamily \+\#include $<$omp.\+h$>$}\newline
+{\ttfamily \+\#include "{}Date\+\_\+\+Dealing.\+h"{}}\newline
+Include dependency graph for Look\+\_\+\+Back.\+cpp:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_look___back_8cpp__incl}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Detailed Description}
+Implementation of Monte Carlo pricing and finite-\/difference Greeks for lookback options. 
+
+The pricing method uses Open\+MP to parallelize Monte Carlo draws. Each thread uses its own RNG instance seeded deterministically from the thread id to prevent data races.
+
+Numerical notes:\+
+\begin{DoxyItemize}
+\item Antithetic variates are used (plus/\+minus Z).
+\item Uniform draws are clamped to avoid log(0).
+\end{DoxyItemize}
+
+\begin{DoxyWarning}{Warning}
+Some Greeks infer the Monte Carlo sample size as N = 1/\+h\texorpdfstring{$^\wedge$}{\string^}4, which can become huge. 
+\end{DoxyWarning}

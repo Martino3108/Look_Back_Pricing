@@ -1,0 +1,74 @@
+\doxysection{Look\+Back\+Dll.\+cpp File Reference}
+\hypertarget{_look_back_dll_8cpp}{}\label{_look_back_dll_8cpp}\index{LookBackDll.cpp@{LookBackDll.cpp}}
+
+
+C ABI implementation for the Look\+Back pricer dynamic library.  
+
+
+{\ttfamily \+\#include "{}Look\+Back\+Dll.\+h"{}}\newline
+{\ttfamily \+\#include $<$string$>$}\newline
+{\ttfamily \+\#include $<$vector$>$}\newline
+{\ttfamily \+\#include $<$algorithm$>$}\newline
+{\ttfamily \+\#include $<$exception$>$}\newline
+{\ttfamily \+\#include $<$cstring$>$}\newline
+{\ttfamily \+\#include "{}Look\+\_\+\+Back.\+h"{}}\newline
+{\ttfamily \+\#include "{}Date\+\_\+\+Dealing.\+h"{}}\newline
+{\ttfamily \+\#include "{}Invalid\+\_\+\+Parameters.\+h"{}}\newline
+Include dependency graph for Look\+Back\+Dll.\+cpp:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_look_back_dll_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} \doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_ga4b70f4bfdbd4cd41c41175a18f462899}{LB\+\_\+\+CreateA}} (double S0, const char \texorpdfstring{$\ast$}{*}value\+\_\+date\+\_\+dd\+\_\+mm\+\_\+yyyy, const char \texorpdfstring{$\ast$}{*}maturity\+\_\+date\+\_\+dd\+\_\+mm\+\_\+yyyy, double sigma, double interest\+\_\+rate, int option\+\_\+ascii, double h, int day\+\_\+count\+\_\+conv)
+\begin{DoxyCompactList}\small\item\em Creates a Look\+Back pricer instance (ASCII dates, portable ABI). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} void \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gacf8b49bd449f6f9d6f5132b03b7f5ade}{LB\+\_\+\+Destroy}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h)
+\begin{DoxyCompactList}\small\item\em Destroys a pricer instance created by LB\+\_\+\+CreateA /\+ LB\+\_\+\+CreateW. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gaf83d3ceb208a65a69184495837966ca5}{LB\+\_\+\+Price}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h, double S, double sigma, double interest\+\_\+rate, double maturity, unsigned int N)
+\begin{DoxyCompactList}\small\item\em Prices the lookback option by Monte Carlo. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gad90df584ef0305ad1f205377848ae9c6}{LB\+\_\+\+Delta}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h, double S)
+\item 
+\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gafed1a33950eb67185e495c1fa01e38e6}{LB\+\_\+\+Theta}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h)
+\item 
+\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_ga6838099ff6f7d655943fdb02ccd6d08b}{LB\+\_\+\+Rho}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h)
+\item 
+\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_ga93d7158cf821ee0496e48ea5362030cd}{LB\+\_\+\+Vega}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h)
+\item 
+\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gabcb5ce6bfeb265f7207eb857f337a753}{LB\+\_\+\+Gamma}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h)
+\item 
+\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} int \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_ga265d73683d740c535995e31f25794767}{LB\+\_\+\+Graphic\+Price}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h, double dx, double \texorpdfstring{$\ast$}{*}x\+\_\+out, double \texorpdfstring{$\ast$}{*}y\+\_\+out, int max\+\_\+len)
+\item 
+\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} int \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_ga44abaf6da846101eb18009600254638e}{LB\+\_\+\+Graphic\+Delta}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h, double dx, double \texorpdfstring{$\ast$}{*}x\+\_\+out, double \texorpdfstring{$\ast$}{*}y\+\_\+out, int max\+\_\+len)
+\item 
+\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gab2dc6a9a67c7cc59615b2c42e9958a8a}{LB\+\_\+\+Get\+Year\+Fraction}} (const char \texorpdfstring{$\ast$}{*}start\+\_\+date, const char \texorpdfstring{$\ast$}{*}end\+\_\+date, int day\+\_\+count\+\_\+conv)
+\item 
+\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} int \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gaf98edfebf3ee03b2efdf7003c51db016}{LB\+\_\+\+Get\+Last\+ErrorA}} (char \texorpdfstring{$\ast$}{*}buffer, int buffer\+\_\+len)
+\begin{DoxyCompactList}\small\item\em Retrieves the last error message (ASCII). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} void \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gafcbc0c6e16396dc29926bf6695f22e2c}{LB\+\_\+\+Clear\+Last\+Error}} ()
+\begin{DoxyCompactList}\small\item\em Clears the thread-\/local last error buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C ABI implementation for the Look\+Back pricer dynamic library. 
+
+This translation unit implements the exported C functions declared in \doxylink{_look_back_dll_8h}{Look\+Back\+Dll.\+h}. It is responsible for:\+
+\begin{DoxyItemize}
+\item Translating primitive ABI inputs into C++ objects ({\ttfamily \doxylink{struct_date}{Date}}, {\ttfamily \doxylink{classlook__back}{look\+\_\+back}}).
+\item Enforcing ABI safety (null checks, handle checks).
+\item Catching exceptions and exposing error messages through a thread-\/local "{}last error"{} mechanism ({\ttfamily \doxylink{group___l_b___bridge_gaf98edfebf3ee03b2efdf7003c51db016}{LB\+\_\+\+Get\+Last\+ErrorA}}).
+\end{DoxyItemize}
+
+Thread-\/safety:\+
+\begin{DoxyItemize}
+\item Error state is stored in a {\ttfamily thread\+\_\+local} string, so different threads do not overwrite each other’s last error message.
+\end{DoxyItemize}
+
+Important:\+
+\begin{DoxyItemize}
+\item The exported functions MUST NOT throw across the ABI boundary. 
+\end{DoxyItemize}

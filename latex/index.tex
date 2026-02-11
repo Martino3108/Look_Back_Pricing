@@ -1,0 +1,185 @@
+\chapter{Look\+Back Pricing Library }
+\hypertarget{index}{}\label{index}\index{LookBack Pricing Library@{LookBack Pricing Library}}
+\label{index_md__r_e_a_d_m_e}%
+\Hypertarget{index_md__r_e_a_d_m_e}%
+\hypertarget{index_autotoc_md14}{}\doxysection{\texorpdfstring{Overview}{Overview}}\label{index_autotoc_md14}
+The {\bfseries{Look\+Back Pricing Library}} is a C++ university project focused on the {\bfseries{Monte Carlo pricing of lookback options}}.
+
+The goal of the project is to combine:\+
+
+
+\begin{DoxyItemize}
+\item financial theory (stochastic modeling and option pricing), and
+\item practical implementation aspects (C++, numerical methods, and basic performance considerations).
+\end{DoxyItemize}
+
+The library is documented using {\bfseries{Doxygen}}, and this file serves as the {\bfseries{main documentation page}}.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md16}{}\doxysection{\texorpdfstring{Objectives of the Project}{Objectives of the Project}}\label{index_autotoc_md16}
+This project was developed with the following educational objectives:\+
+
+
+\begin{DoxyItemize}
+\item Implement Monte Carlo pricing for path-\/dependent options
+\item Understand the numerical implications of simulating stochastic processes
+\item Apply risk-\/neutral valuation in practice
+\item Gain experience with structured C++ code for quantitative finance
+\item Learn how to document a numerical project using Doxygen
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md18}{}\doxysection{\texorpdfstring{Financial Model}{Financial Model}}\label{index_autotoc_md18}
+The pricing methodology implemented in this project is based on a {\bfseries{continuous-\/time stochastic framework}}, following the exact simulation of lookback options as presented in Crépey (2013).
+
+Let \$\+X\+\_\+t\$ denote a one-\/dimensional diffusion process defined on the time interval \$\+[0,T]\+\$, satisfying the stochastic differential equation:\+
+
+\$\$d\+X\+\_\+t = b \textbackslash{} dt + \textbackslash{}sigma \textbackslash{}, d\+W\+\_\+t,\$\$
+
+where \$\+W\+\_\+t\$ is a standard Brownian motion. This dynamics corresponds to the explicit solution of the Black-\/\+Scholes model (applied to log-\/prices). The associated running maximum process is defined as:\+
+
+\$\$\+M\+\_\+t = \textbackslash{}sup\+\_\+\{0 \textbackslash{}le s \textbackslash{}le t\} X\+\_\+s.\$\$
+
+A lookback option payoff is written in the general form \$\textbackslash{}phi(X\+\_\+T, M\+\_\+T)\$.
+
+Since the model assumes constant coefficients, the SDE admits a {\bfseries{closed-\/form solution}}. Therefore, the Monte Carlo pricing procedure does not require a time-\/discretized approximation. Instead, it relies on the {\bfseries{exact simulation of the joint law}} of the terminal value and the running maximum, \$(\+X\+\_\+\+T, M\+\_\+\+T)\$.
+
+Specifically, the terminal value \$\+X\+\_\+\+T\$ is simulated directly from its Gaussian distribution. Conditioned on the value of \$\+X\+\_\+\+T\$, the running maximum \$\+M\+\_\+\+T\$ follows a known distribution (derived from the reflection principle for Brownian motion with drift), which can be sampled exactly using an auxiliary independent uniform random variable.
+
+This approach preserves the {\bfseries{continuous-\/time nature of the maximum process}} without any discretization bias, ensuring high accuracy and computational efficiency within the Monte Carlo framework.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md20}{}\doxysection{\texorpdfstring{Numerical Method}{Numerical Method}}\label{index_autotoc_md20}
+
+\begin{DoxyItemize}
+\item Monte Carlo simulation of asset price paths
+\item Log-\/space simulation for improved numerical stability
+\item Estimation of the discounted expected payoff
+\item Basic performance optimization using Open\+MP parallelization
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md22}{}\doxysection{\texorpdfstring{Project Structure}{Project Structure}}\label{index_autotoc_md22}
+The project is organized in a {\bfseries{simple and compact structure}}, consistent with a university assignment:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Look\_Back\_Pricing/}
+\DoxyCodeLine{│}
+\DoxyCodeLine{├──\ *.h\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Header\ files}
+\DoxyCodeLine{├──\ *.cpp\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ C++\ source\ files}
+\DoxyCodeLine{├──\ LookBackUI.xlsm\ \ \ \#\ Excel/VBA\ interface\ (macro-\/enabled\ workbook)}
+\DoxyCodeLine{├──\ Doxyfile\ \ \ \ \ \ \ \ \ \ \#\ Doxygen\ configuration\ file}
+\DoxyCodeLine{├──\ html/\ \ \ \ \ \ \ \ \ \ \ \ \ \#\ Generated\ Doxygen\ documentation}
+\DoxyCodeLine{└──\ README.md\ \ \ \ \ \ \ \ \ \#\ Main\ documentation\ page}
+
+\end{DoxyCode}
+
+
+The focus of the project is on the {\bfseries{pricing logic and numerical implementation}}, rather than on software engineering abstractions.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md24}{}\doxysection{\texorpdfstring{Build Instructions}{Build Instructions}}\label{index_autotoc_md24}
+\hypertarget{index_autotoc_md25}{}\doxysubsection{\texorpdfstring{Requirements}{Requirements}}\label{index_autotoc_md25}
+
+\begin{DoxyItemize}
+\item C++17 compatible compiler
+\item Open\+MP (for parallel execution)
+\end{DoxyItemize}\hypertarget{index_autotoc_md26}{}\doxysubsection{\texorpdfstring{Compilation Example}{Compilation Example}}\label{index_autotoc_md26}
+The following example shows how to compile the project as a {\bfseries{dynamic library ({\ttfamily .dylib}) on mac\+OS}}, with Open\+MP support via {\ttfamily libomp} installed through Homebrew:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{clang++\ -\/std=c++20\ -\/O3\ -\/fPIC\ -\/dynamiclib\ \(\backslash\)}
+\DoxyCodeLine{\ \ Look\_Back.cpp\ Date\_Dealing.cpp\ LookBackDll.cpp\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/Xpreprocessor\ -\/fopenmp\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/I"{}\$(brew\ -\/-\/prefix\ libomp)/include"{}\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/L"{}\$(brew\ -\/-\/prefix\ libomp)/lib"{}\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/Wl,-\/rpath,"{}\$(brew\ -\/-\/prefix\ libomp)/lib"{}\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/lomp\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/Wl,-\/install\_name,@rpath/libLookBack.dylib\ \(\backslash\)}
+\DoxyCodeLine{\ \ -\/o\ libLookBack.dylib}
+
+\end{DoxyCode}
+
+
+This command produces the dynamic library {\ttfamily lib\+Look\+Back.\+dylib}, which can be used directly from Excel/\+\+VBA on mac\+OS.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md28}{}\doxysection{\texorpdfstring{VBA Interface and DLL Path Configuration}{VBA Interface and DLL Path Configuration}}\label{index_autotoc_md28}
+When using the library from {\bfseries{Excel/\+\+VBA}} (via the provided {\ttfamily .xlsm} interface), the path to the compiled dynamic library {\bfseries{must be adjusted manually}} to match the local system.
+
+In particular, the {\ttfamily Lib} attribute in each {\ttfamily Declare Ptr\+Safe Function} statement must point to the actual location of {\ttfamily lib\+Look\+Back.\+dylib} on the user\textquotesingle{}s machine.
+
+For example:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Option\ Explicit}
+\DoxyCodeLine{}
+\DoxyCodeLine{'\ DLL\ declaration\ (macOS)}
+\DoxyCodeLine{Public\ Declare\ PtrSafe\ Function\ LB\_CreateA\ \_}
+\DoxyCodeLine{\ \ \ \ Lib\ "{}/Users/Martino/Library/Containers/com.microsoft.Excel/Data/libLookBack.dylib"{}\ (\ \_}
+\DoxyCodeLine{\ \ \ \ ByVal\ S0\ As\ Double,\ \_}
+\DoxyCodeLine{\ \ \ \ ByVal\ valueDate\ As\ String,\ \_}
+\DoxyCodeLine{\ \ \ \ ByVal\ maturityDate\ As\ String,\ \_}
+\DoxyCodeLine{\ \ \ \ ByVal\ sigma\ As\ Double,\ \_}
+\DoxyCodeLine{\ \ \ \ ByVal\ r\ As\ Double,\ \_}
+\DoxyCodeLine{\ \ \ \ ByVal\ optAscii\ As\ Long,\ \_}
+\DoxyCodeLine{\ \ \ \ ByVal\ hBump\ As\ Double,\ \_}
+\DoxyCodeLine{\ \ \ \ ByVal\ ddc\ As\ Long\ \_}
+\DoxyCodeLine{)\ As\ LongPtr}
+
+\end{DoxyCode}
+
+
+If the library is moved to a different directory or the project is run on another machine, {\bfseries{this path must be updated accordingly}}. Failing to do so will result in Excel being unable to load the DLL.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md30}{}\doxysection{\texorpdfstring{Documentation}{Documentation}}\label{index_autotoc_md30}
+The documentation is generated using {\bfseries{Doxygen}}.
+
+To generate the documentation:\+
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{doxygen\ Doxyfile}
+
+\end{DoxyCode}
+
+
+Open the file {\ttfamily html/\+index.\+html} in a browser to view the documentation.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md32}{}\doxysection{\texorpdfstring{References}{References}}\label{index_autotoc_md32}
+The theoretical and numerical approach used in this project is based exclusively on the following reference:\+
+
+
+\begin{DoxyItemize}
+\item {\bfseries{Stéphane Crépey}}, {\itshape Financial Modeling:\+ A Backward Stochastic Differential Equations Perspective}, Springer, 2013.
+\end{DoxyItemize}
+
+In particular, the Monte Carlo simulation of lookback options follows the methodology described in:\+
+
+
+\begin{DoxyItemize}
+\item Chapter 6:\+ {\itshape Monte Carlo Methods for Exotic Options}
+\item Section 6.\+9:\+ {\itshape Lookback Options}
+\item Subsection 6.\+9.\+1.\+1:\+ {\itshape Black–\+Scholes Case}
+\end{DoxyItemize}
+
+The simulation of the joint distribution of the terminal log-\/price and its running maximum, $ (X_T, M_T) $, is performed by sampling the conditional distribution of the maximum over each time interval using an auxiliary uniform random variable, as described in equation (6.\+20) of the reference.
+
+This reference provides the sole theoretical foundation for the pricing methodology implemented in the library.
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md34}{}\doxysection{\texorpdfstring{Authors}{Authors}}\label{index_autotoc_md34}
+
+\begin{DoxyItemize}
+\item {\bfseries{Marco De Luca}}
+\item {\bfseries{Vincenzo Martino Pio Arena}}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md36}{}\doxysection{\texorpdfstring{Notes}{Notes}}\label{index_autotoc_md36}
+This project is intended for {\bfseries{academic purposes only}} and was developed as part of a university course in C++ coding. 

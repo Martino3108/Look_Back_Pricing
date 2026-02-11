@@ -1,0 +1,51 @@
+\doxysection{Look\+\_\+\+Back\+\_\+\+Validator Class Reference}
+\hypertarget{class_look___back___validator}{}\label{class_look___back___validator}\index{Look\_Back\_Validator@{Look\_Back\_Validator}}
+
+
+Static validation rules for lookback pricer construction.  
+
+
+
+
+{\ttfamily \+\#include $<$Invalid\+\_\+\+Parameters.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \doxymbox{\hyperlink{class_look___back___validator_a5fd22578ef56a2fd972bdb2ba0b8f52c}{validate}} (double S0, double sigma, double interest\+\_\+rate, char option, double ttm, double h)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Static validation rules for lookback pricer construction. 
+
+Enforces constraints such as:\+
+\begin{DoxyItemize}
+\item S0 \texorpdfstring{$>$}{>} 0
+\item sigma \texorpdfstring{$>$}{>} 0
+\item interest\+\_\+rate \texorpdfstring{$>$}{>}= 0
+\item option in \{\textquotesingle{}c\textquotesingle{},\textquotesingle{}p\textquotesingle{}\}
+\item ttm \texorpdfstring{$>$}{>}= 0
+\item h \texorpdfstring{$>$}{>}= 0.\+005
+\item h \texorpdfstring{$<$}{<} 1 
+\begin{DoxyExceptions}{Exceptions}
+{\em \doxylink{class_invalid___parameters}{Invalid\+\_\+\+Parameters}} & on first violated rule. \\
+\hline
+\end{DoxyExceptions}
+
+\end{DoxyItemize}
+
+\label{doc-func-members}
+\Hypertarget{class_look___back___validator_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_look___back___validator_a5fd22578ef56a2fd972bdb2ba0b8f52c}\index{Look\_Back\_Validator@{Look\_Back\_Validator}!validate@{validate}}
+\index{validate@{validate}!Look\_Back\_Validator@{Look\_Back\_Validator}}
+\doxysubsubsection{\texorpdfstring{validate()}{validate()}}
+{\footnotesize\ttfamily \label{class_look___back___validator_a5fd22578ef56a2fd972bdb2ba0b8f52c} 
+void Look\+\_\+\+Back\+\_\+\+Validator::\+validate (\begin{DoxyParamCaption}\item[{double}]{S0}{, }\item[{double}]{sigma}{, }\item[{double}]{interest\+\_\+rate}{, }\item[{char}]{option}{, }\item[{double}]{ttm}{, }\item[{double}]{h}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following file:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{_invalid___parameters_8h}{Invalid\+\_\+\+Parameters.\+h}}\end{DoxyCompactItemize}

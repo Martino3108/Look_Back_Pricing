@@ -94,73 +94,73 @@ $(function(){initNavTree('_look___back_8h_source.html','',''); });
 <div class="contents">
 <a href="_look___back_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#ifndef LOOK_BACK_H</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#define LOOK_BACK_H</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#include &lt;random&gt;</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">#include &quot;<a class="code" href="_date___dealing_8h.html">Date_Dealing.h</a>&quot;</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#include &quot;<a class="code" href="_invalid___parameters_8h.html">Invalid_Parameters.h</a>&quot;</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="group___l_b___core.html#ga566a9f0c55e063e3cfee8a0981483be7">   59</a></span><span class="keyword">typedef</span> std::vector&lt;double&gt; <a class="code hl_typedef" href="group___l_b___core.html#ga566a9f0c55e063e3cfee8a0981483be7">vect</a>;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="foldopen" id="foldopen00092" data-start="{" data-end="};">
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classlook__back.html">   92</a></span><span class="keyword">class </span><a class="code hl_function" href="classlook__back.html#ad0d5bed4b489d2fc70f18237e76709da">look_back</a></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>{</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keyword">mutable</span> std::mt19937_64 gen_;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">double</span> S0_;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_struct" href="struct_date.html">Date</a> value_date_;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <a class="code hl_struct" href="struct_date.html">Date</a> maturity_date_;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">double</span> ttm_; <span class="comment">// time to maturity</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">double</span> sigma_;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordtype">double</span> interest_rate_;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordtype">char</span> option_;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">double</span> h_;</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="classlook__back.html#ad0d5bed4b489d2fc70f18237e76709da">  122</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="classlook__back.html#ad0d5bed4b489d2fc70f18237e76709da">look_back</a>(<span class="keywordtype">double</span> S0, <a class="code hl_struct" href="struct_date.html">Date</a> value_date, <a class="code hl_struct" href="struct_date.html">Date</a> maturity_date, <span class="keywordtype">double</span> sigma, <span class="keywordtype">double</span> interest_rate, <span class="keywordtype">char</span> option, <span class="keywordtype">double</span> h, <a class="code hl_enumeration" href="_date___dealing_8h.html#aa00d31f388138ee974de37f288651cd0">DayCountConv</a> ddc  = <a class="code hl_enumvalue" href="_date___dealing_8h.html#aa00d31f388138ee974de37f288651cd0a1e03857ef538881f02f156179b6fd6e6">DayCountConv::ACT_ACT_ISDA</a>)</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    :  S0_(S0), value_date_(value_date), maturity_date_(maturity_date), ttm_(<a class="code hl_function" href="_date___dealing_8cpp.html#a16d5f3ec21ae41b86d6c1b6368f186f8">yearFraction</a>(value_date, maturity_date, ddc)), sigma_(sigma), interest_rate_(interest_rate), option_(std::tolower(option)), h_(h)</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    {</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <a class="code hl_function" href="class_look___back___validator.html#a5fd22578ef56a2fd972bdb2ba0b8f52c">Look_Back_Validator::validate</a>(S0_, sigma_, interest_rate_, option_, ttm_, h_);</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#ifndef LOOK_BACK_H</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#define LOOK_BACK_H</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#include &lt;random&gt;</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#include &quot;<a class="code" href="_date___dealing_8h.html">Date_Dealing.h</a>&quot;</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#include &quot;<a class="code" href="_invalid___parameters_8h.html">Invalid_Parameters.h</a>&quot;</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="group___l_b___core.html#ga566a9f0c55e063e3cfee8a0981483be7">   56</a></span><span class="keyword">typedef</span> std::vector&lt;double&gt; <a class="code hl_typedef" href="group___l_b___core.html#ga566a9f0c55e063e3cfee8a0981483be7">vect</a>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="};">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classlook__back.html">   89</a></span><span class="keyword">class </span><a class="code hl_function" href="classlook__back.html#ad0d5bed4b489d2fc70f18237e76709da">look_back</a></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>{</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keyword">mutable</span> std::mt19937_64 gen_;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">double</span> S0_;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <a class="code hl_struct" href="struct_date.html">Date</a> value_date_;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_struct" href="struct_date.html">Date</a> maturity_date_;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">double</span> ttm_; <span class="comment">// time to maturity</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">double</span> sigma_;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">double</span> interest_rate_;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">char</span> option_;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">double</span> h_;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00119" data-start="{" data-end="}">
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="classlook__back.html#ad0d5bed4b489d2fc70f18237e76709da">  119</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="classlook__back.html#ad0d5bed4b489d2fc70f18237e76709da">look_back</a>(<span class="keywordtype">double</span> S0, <a class="code hl_struct" href="struct_date.html">Date</a> value_date, <a class="code hl_struct" href="struct_date.html">Date</a> maturity_date, <span class="keywordtype">double</span> sigma, <span class="keywordtype">double</span> interest_rate, <span class="keywordtype">char</span> option, <span class="keywordtype">double</span> h, <a class="code hl_enumeration" href="_date___dealing_8h.html#aa00d31f388138ee974de37f288651cd0">DayCountConv</a> ddc  = <a class="code hl_enumvalue" href="_date___dealing_8h.html#aa00d31f388138ee974de37f288651cd0a1e03857ef538881f02f156179b6fd6e6">DayCountConv::ACT_ACT_ISDA</a>)</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    :  S0_(S0), value_date_(value_date), maturity_date_(maturity_date), ttm_(<a class="code hl_function" href="_date___dealing_8cpp.html#a16d5f3ec21ae41b86d6c1b6368f186f8">yearFraction</a>(value_date, maturity_date, ddc)), sigma_(sigma), interest_rate_(interest_rate), option_(std::tolower(option)), h_(h)</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <a class="code hl_function" href="class_look___back___validator.html#a5fd22578ef56a2fd972bdb2ba0b8f52c">Look_Back_Validator::validate</a>(S0_, sigma_, interest_rate_, option_, ttm_, h_);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    }</div>
 </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classlook__back.html#a90ff491cedf7f3e0da2b46b266af7401">price</a>(<span class="keywordtype">double</span> S, <span class="keywordtype">double</span> sigma, <span class="keywordtype">double</span> interest_rate, <span class="keywordtype">double</span> maturity, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N = 5000000) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classlook__back.html#a60298d1275643a61360ef21dacc1a858">delta</a>(<span class="keywordtype">double</span> S) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classlook__back.html#a90ff491cedf7f3e0da2b46b266af7401">price</a>(<span class="keywordtype">double</span> S, <span class="keywordtype">double</span> sigma, <span class="keywordtype">double</span> interest_rate, <span class="keywordtype">double</span> maturity, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> N = 5000000) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classlook__back.html#a60298d1275643a61360ef21dacc1a858">delta</a>(<span class="keywordtype">double</span> S) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classlook__back.html#a83cbcd6926997cce309d0c4940507c9d">theta</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classlook__back.html#a83cbcd6926997cce309d0c4940507c9d">theta</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classlook__back.html#a1d4b09aa09a7b4c1e2c1b12f46ec6590">rho</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classlook__back.html#a1d4b09aa09a7b4c1e2c1b12f46ec6590">rho</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classlook__back.html#a78cf8e87d0d68acc6e97097c8bf574ae">vega</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span></div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classlook__back.html#a78cf8e87d0d68acc6e97097c8bf574ae">vega</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classlook__back.html#a33e6d5aa388e3d688f1fa2cafc68a92a">gamma</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span></div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordtype">double</span> <a class="code hl_function" href="classlook__back.html#a33e6d5aa388e3d688f1fa2cafc68a92a">gamma</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    std::array&lt;vect,2&gt; <a class="code hl_function" href="classlook__back.html#a30b41da0f13f9a515fa0fd9f1357005d">graphic_price</a>(<span class="keywordtype">double</span> dx) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span></div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    std::array&lt;vect,2&gt; <a class="code hl_function" href="classlook__back.html#a30b41da0f13f9a515fa0fd9f1357005d">graphic_price</a>(<span class="keywordtype">double</span> dx) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span></div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    std::array&lt;vect,2&gt; <a class="code hl_function" href="classlook__back.html#af4106050b0d050645292027367ddeb91">graphic_delta</a>(<span class="keywordtype">double</span> dx) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>};</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    std::array&lt;vect,2&gt; <a class="code hl_function" href="classlook__back.html#af4106050b0d050645292027367ddeb91">graphic_delta</a>(<span class="keywordtype">double</span> dx) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>};</div>
 </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> <span class="comment">// endgroup LB_Core</span></div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> <span class="comment">// endgroup LB_Core</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="a_date___dealing_8cpp_html_a16d5f3ec21ae41b86d6c1b6368f186f8"><div class="ttname"><a href="_date___dealing_8cpp.html#a16d5f3ec21ae41b86d6c1b6368f186f8">yearFraction</a></div><div class="ttdeci">double yearFraction(const Date &amp;start, const Date &amp;end, DayCountConv dc)</div><div class="ttdoc">Computes the year fraction between start and end according to a day-count convention.</div><div class="ttdef"><b>Definition</b> Date_Dealing.cpp:113</div></div>
 <div class="ttc" id="a_date___dealing_8h_html"><div class="ttname"><a href="_date___dealing_8h.html">Date_Dealing.h</a></div><div class="ttdoc">Date parsing and year-fraction computation (day-count conventions).</div></div>
 <div class="ttc" id="a_date___dealing_8h_html_aa00d31f388138ee974de37f288651cd0"><div class="ttname"><a href="_date___dealing_8h.html#aa00d31f388138ee974de37f288651cd0">DayCountConv</a></div><div class="ttdeci">DayCountConv</div><div class="ttdoc">Day-count conventions supported by yearFraction().</div><div class="ttdef"><b>Definition</b> Date_Dealing.h:43</div></div>
@@ -174,9 +174,9 @@ $(function(){initNavTree('_look___back_8h_source.html','',''); });
 <div class="ttc" id="aclasslook__back_html_a78cf8e87d0d68acc6e97097c8bf574ae"><div class="ttname"><a href="classlook__back.html#a78cf8e87d0d68acc6e97097c8bf574ae">look_back::vega</a></div><div class="ttdeci">double vega() const</div><div class="ttdoc">Vega via finite difference in volatility (scaled by 0.01).</div><div class="ttdef"><b>Definition</b> Look_Back.cpp:122</div></div>
 <div class="ttc" id="aclasslook__back_html_a83cbcd6926997cce309d0c4940507c9d"><div class="ttname"><a href="classlook__back.html#a83cbcd6926997cce309d0c4940507c9d">look_back::theta</a></div><div class="ttdeci">double theta() const</div><div class="ttdoc">Theta via central finite difference in maturity (uses a 3-day bump).</div><div class="ttdef"><b>Definition</b> Look_Back.cpp:147</div></div>
 <div class="ttc" id="aclasslook__back_html_a90ff491cedf7f3e0da2b46b266af7401"><div class="ttname"><a href="classlook__back.html#a90ff491cedf7f3e0da2b46b266af7401">look_back::price</a></div><div class="ttdeci">double price(double S, double sigma, double interest_rate, double maturity, unsigned int N=5000000) const</div><div class="ttdoc">Prices a lookback option using Monte Carlo simulation.</div><div class="ttdef"><b>Definition</b> Look_Back.cpp:24</div></div>
-<div class="ttc" id="aclasslook__back_html_ad0d5bed4b489d2fc70f18237e76709da"><div class="ttname"><a href="classlook__back.html#ad0d5bed4b489d2fc70f18237e76709da">look_back::look_back</a></div><div class="ttdeci">look_back(double S0, Date value_date, Date maturity_date, double sigma, double interest_rate, char option, double h, DayCountConv ddc=DayCountConv::ACT_ACT_ISDA)</div><div class="ttdoc">Constructs a pricer instance and validates inputs.</div><div class="ttdef"><b>Definition</b> Look_Back.h:122</div></div>
+<div class="ttc" id="aclasslook__back_html_ad0d5bed4b489d2fc70f18237e76709da"><div class="ttname"><a href="classlook__back.html#ad0d5bed4b489d2fc70f18237e76709da">look_back::look_back</a></div><div class="ttdeci">look_back(double S0, Date value_date, Date maturity_date, double sigma, double interest_rate, char option, double h, DayCountConv ddc=DayCountConv::ACT_ACT_ISDA)</div><div class="ttdoc">Constructs a pricer instance and validates inputs.</div><div class="ttdef"><b>Definition</b> Look_Back.h:119</div></div>
 <div class="ttc" id="aclasslook__back_html_af4106050b0d050645292027367ddeb91"><div class="ttname"><a href="classlook__back.html#af4106050b0d050645292027367ddeb91">look_back::graphic_delta</a></div><div class="ttdeci">std::array&lt; vect, 2 &gt; graphic_delta(double dx) const</div><div class="ttdoc">Generates (S, delta(S)) points for plotting.</div><div class="ttdef"><b>Definition</b> Look_Back.cpp:180</div></div>
-<div class="ttc" id="agroup___l_b___core_html_ga566a9f0c55e063e3cfee8a0981483be7"><div class="ttname"><a href="group___l_b___core.html#ga566a9f0c55e063e3cfee8a0981483be7">vect</a></div><div class="ttdeci">std::vector&lt; double &gt; vect</div><div class="ttdoc">Alias used for graph output (x,y vectors).</div><div class="ttdef"><b>Definition</b> Look_Back.h:59</div></div>
+<div class="ttc" id="agroup___l_b___core_html_ga566a9f0c55e063e3cfee8a0981483be7"><div class="ttname"><a href="group___l_b___core.html#ga566a9f0c55e063e3cfee8a0981483be7">vect</a></div><div class="ttdeci">std::vector&lt; double &gt; vect</div><div class="ttdoc">Alias used for graph output (x,y vectors).</div><div class="ttdef"><b>Definition</b> Look_Back.h:56</div></div>
 <div class="ttc" id="astruct_date_html"><div class="ttname"><a href="struct_date.html">Date</a></div><div class="ttdoc">Lightweight date wrapper storing a std::chrono::year_month_day.</div><div class="ttdef"><b>Definition</b> Date_Dealing.h:35</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

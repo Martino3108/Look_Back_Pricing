@@ -1,0 +1,94 @@
+\doxysection{Look\+Back\+Dll.\+h}
+\hypertarget{_look_back_dll_8h_source}{}\label{_look_back_dll_8h_source}\doxymbox{\hyperlink{_look_back_dll_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \#define\ LB\_CALL\ \_\_stdcall}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \#ifdef\ LOOKBACKDLL\_EXPORTS}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\ \ \ \ \#define\ LB\_API\ extern\ "{}C"{}\ \_\_declspec(dllexport)}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\ \ \#else}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\ \ \ \ \#define\ LB\_API\ extern\ "{}C"{}\ \_\_declspec(dllimport)}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\ \ \#define\ LB\_CALL}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\ \ \#if\ defined(\_\_APPLE\_\_)}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\ \ \ \ \#define\ LB\_API\ extern\ "{}C"{}\ \_\_attribute\_\_((visibility("{}default"{})))}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\ \ \#else}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\ \ \ \ \#define\ LB\_API\ extern\ "{}C"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\ \ \#endif}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{enum}\ \doxymbox{\hyperlink{group___l_b___bridge_gabae82c30a9e98db678becc60139bc826}{LB\_DayCountConv}}\ :\ \textcolor{keywordtype}{int}\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \doxymbox{\hyperlink{group___l_b___bridge_ggabae82c30a9e98db678becc60139bc826aad1fb55d55f7d38a3e284b84d1c21c5a}{LB\_ACT\_360}}\ \ \ \ \ \ \ \ =\ 0,}
+\DoxyCodeLine{00054\ \ \ \ \ \doxymbox{\hyperlink{group___l_b___bridge_ggabae82c30a9e98db678becc60139bc826a915251559fa4e41967660aa1a6d15891}{LB\_ACT\_365F}}\ \ \ \ \ \ \ =\ 1,}
+\DoxyCodeLine{00055\ \ \ \ \ \doxymbox{\hyperlink{group___l_b___bridge_ggabae82c30a9e98db678becc60139bc826a3dde758dd094e8ca9158b4b5081dddcf}{LB\_THIRTY\_360\_US}}\ \ =\ 2,}
+\DoxyCodeLine{00056\ \ \ \ \ \doxymbox{\hyperlink{group___l_b___bridge_ggabae82c30a9e98db678becc60139bc826af64684c7ab374874b7e84155c7e3f186}{LB\_THIRTY\_360\_EU}}\ \ =\ 3,}
+\DoxyCodeLine{00057\ \ \ \ \ \doxymbox{\hyperlink{group___l_b___bridge_ggabae82c30a9e98db678becc60139bc826ad2dbd34a6bbe6d09d336b72a1c1ba2b4}{LB\_ACT\_ACT\_ISDA}}\ \ \ =\ 4}
+\DoxyCodeLine{00058\ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}*\ \doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\_Handle}};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00088\ \doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\_API}}\ \doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\_Handle}}\ \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\_CALL}}\ \doxymbox{\hyperlink{group___l_b___bridge_ga4b70f4bfdbd4cd41c41175a18f462899}{LB\_CreateA}}(}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{double}\ S0,}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ value\_date\_dd\_mm\_yyyy,}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ maturity\_date\_dd\_mm\_yyyy,}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{double}\ sigma,}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{double}\ interest\_rate,}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{int}\ option\_ascii,}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{double}\ h,}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{int}\ day\_count\_conv}
+\DoxyCodeLine{00097\ );}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00100\ \textcolor{comment}{//\ Windows-\/only\ Unicode}}
+\DoxyCodeLine{00101\ \doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\_API}}\ \doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\_Handle}}\ \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\_CALL}}\ LB\_CreateW(}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{double}\ S0,}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}*\ value\_date\_dd\_mm\_yyyy,}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{wchar\_t}*\ maturity\_date\_dd\_mm\_yyyy,}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{double}\ sigma,}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{double}\ interest\_rate,}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{int}\ option\_ascii,}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{double}\ h,}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{int}\ day\_count\_conv}
+\DoxyCodeLine{00110\ );}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00117\ \doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\_API}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\_CALL}}\ \doxymbox{\hyperlink{group___l_b___bridge_gacf8b49bd449f6f9d6f5132b03b7f5ade}{LB\_Destroy}}(\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\_Handle}}\ h);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00130\ \doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\_API}}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\_CALL}}\ \doxymbox{\hyperlink{group___l_b___bridge_gaf83d3ceb208a65a69184495837966ca5}{LB\_Price}}(\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\_Handle}}\ h,\ \textcolor{keywordtype}{double}\ S,\ \textcolor{keywordtype}{double}\ sigma,\ \textcolor{keywordtype}{double}\ interest\_rate,\ \textcolor{keywordtype}{double}\ maturity,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ N);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{comment}{//\ -\/-\/-\/-\/\ Greeks\ -\/-\/-\/-\/}}
+\DoxyCodeLine{00133\ \doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\_API}}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\_CALL}}\ \doxymbox{\hyperlink{group___l_b___bridge_gad90df584ef0305ad1f205377848ae9c6}{LB\_Delta}}(\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\_Handle}}\ h,\ \textcolor{keywordtype}{double}\ S);}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\_API}}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\_CALL}}\ \doxymbox{\hyperlink{group___l_b___bridge_gafed1a33950eb67185e495c1fa01e38e6}{LB\_Theta}}(\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\_Handle}}\ h);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\_API}}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\_CALL}}\ \doxymbox{\hyperlink{group___l_b___bridge_ga6838099ff6f7d655943fdb02ccd6d08b}{LB\_Rho}}(\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\_Handle}}\ h);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\_API}}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\_CALL}}\ \doxymbox{\hyperlink{group___l_b___bridge_ga93d7158cf821ee0496e48ea5362030cd}{LB\_Vega}}(\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\_Handle}}\ h);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\_API}}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\_CALL}}\ \doxymbox{\hyperlink{group___l_b___bridge_gabcb5ce6bfeb265f7207eb857f337a753}{LB\_Gamma}}(\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\_Handle}}\ h);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{comment}{//\ -\/-\/-\/-\/\ Graphs\ -\/-\/-\/-\/}}
+\DoxyCodeLine{00144\ \doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\_API}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\_CALL}}\ \doxymbox{\hyperlink{group___l_b___bridge_ga265d73683d740c535995e31f25794767}{LB\_GraphicPrice}}(\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\_Handle}}\ h,\ \textcolor{keywordtype}{double}\ dx,\ \textcolor{keywordtype}{double}*\ x\_out,\ \textcolor{keywordtype}{double}*\ y\_out,\ \textcolor{keywordtype}{int}\ max\_len);}
+\DoxyCodeLine{00145\ \doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\_API}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\_CALL}}\ \doxymbox{\hyperlink{group___l_b___bridge_ga44abaf6da846101eb18009600254638e}{LB\_GraphicDelta}}(\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\_Handle}}\ h,\ \textcolor{keywordtype}{double}\ dx,\ \textcolor{keywordtype}{double}*\ x\_out,\ \textcolor{keywordtype}{double}*\ y\_out,\ \textcolor{keywordtype}{int}\ max\_len);}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \textcolor{comment}{//\ Date\ function}}
+\DoxyCodeLine{00148\ \doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\_API}}\ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\_CALL}}\ \doxymbox{\hyperlink{group___l_b___bridge_gab2dc6a9a67c7cc59615b2c42e9958a8a}{LB\_GetYearFraction}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ start\_date,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ end\_date,\ \textcolor{keywordtype}{int}\ day\_count\_conv);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00159\ \doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\_API}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\_CALL}}\ \doxymbox{\hyperlink{group___l_b___bridge_gaf98edfebf3ee03b2efdf7003c51db016}{LB\_GetLastErrorA}}(\textcolor{keywordtype}{char}*\ buffer,\ \textcolor{keywordtype}{int}\ buffer\_len);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#ifdef\ \_WIN32}}
+\DoxyCodeLine{00162\ \doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\_API}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\_CALL}}\ LB\_GetLastErrorW(\textcolor{keywordtype}{wchar\_t}*\ buffer,\ \textcolor{keywordtype}{int}\ buffer\_len);}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00166\ \doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\_API}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\_CALL}}\ \doxymbox{\hyperlink{group___l_b___bridge_gafcbc0c6e16396dc29926bf6695f22e2c}{LB\_ClearLastError}}();}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \textcolor{comment}{//\ endgroup\ LB\_Bridge}}
+
+\end{DoxyCode}

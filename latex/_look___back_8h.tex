@@ -1,0 +1,59 @@
+\doxysection{Look\+\_\+\+Back.\+h File Reference}
+\hypertarget{_look___back_8h}{}\label{_look___back_8h}\index{Look\_Back.h@{Look\_Back.h}}
+
+
+Core C++ lookback option pricer interface.  
+
+
+{\ttfamily \+\#include $<$iostream$>$}\newline
+{\ttfamily \+\#include $<$random$>$}\newline
+{\ttfamily \+\#include "{}Date\+\_\+\+Dealing.\+h"{}}\newline
+{\ttfamily \+\#include "{}Invalid\+\_\+\+Parameters.\+h"{}}\newline
+Include dependency graph for Look\+\_\+\+Back.\+h:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_look___back_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{_look___back_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{classlook__back}{look\+\_\+back}}
+\begin{DoxyCompactList}\small\item\em Monte Carlo pricer for lookback options. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef std::\+vector$<$ double $>$ \doxymbox{\hyperlink{group___l_b___core_ga566a9f0c55e063e3cfee8a0981483be7}{vect}}
+\begin{DoxyCompactList}\small\item\em Alias used for graph output (x,y vectors). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Core C++ lookback option pricer interface. 
+
+\begin{DoxyAuthor}{Author}
+Vincenzo Martino Pio Arena Marco De Luca
+\end{DoxyAuthor}
+Defines the {\ttfamily \doxylink{classlook__back}{look\+\_\+back}} class which encapsulates contract inputs (dates, option type), market parameters (sigma, rate), and numerical controls for Greeks (finite-\/difference step).
+
+The class offers:\+
+\begin{DoxyItemize}
+\item Monte Carlo pricing (option payoff estimated under GBM assumptions).
+\item Greeks computed via finite differences around the stored baseline parameters.
+\item Simple graph helpers for price/\+delta as a function of spot.
+\end{DoxyItemize}
+
+Error model:\+
+\begin{DoxyItemize}
+\item The core C++ implementation may throw exceptions (e.\+g., \doxylink{class_invalid___parameters}{Invalid\+\_\+\+Parameters}).
+\item The ABI bridge (\doxylink{_look_back_dll_8cpp}{Look\+Back\+Dll.\+cpp}) is responsible for catching and reporting them. 
+\end{DoxyItemize}

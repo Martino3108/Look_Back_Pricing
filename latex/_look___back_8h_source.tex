@@ -1,0 +1,70 @@
+\doxysection{Look\+\_\+\+Back.\+h}
+\hypertarget{_look___back_8h_source}{}\label{_look___back_8h_source}\doxymbox{\hyperlink{_look___back_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#ifndef\ LOOK\_BACK\_H}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ LOOK\_BACK\_H}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_date___dealing_8h}{Date\_Dealing.h}}"{}}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{_invalid___parameters_8h}{Invalid\_Parameters.h}}"{}}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{typedef}\ std::vector<double>\ \doxymbox{\hyperlink{group___l_b___core_ga566a9f0c55e063e3cfee8a0981483be7}{vect}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{classlook__back_ad0d5bed4b489d2fc70f18237e76709da}{look\_back}}}
+\DoxyCodeLine{00090\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{mutable}\ std::mt19937\_64\ gen\_;}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{double}\ S0\_;}
+\DoxyCodeLine{00095\ \ \ \ \ }
+\DoxyCodeLine{00096\ \ \ \ \ \doxymbox{\hyperlink{struct_date}{Date}}\ value\_date\_;}
+\DoxyCodeLine{00097\ \ \ \ \ \doxymbox{\hyperlink{struct_date}{Date}}\ maturity\_date\_;}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{double}\ ttm\_;\ \textcolor{comment}{//\ time\ to\ maturity}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{double}\ sigma\_;}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{double}\ interest\_rate\_;}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{char}\ option\_;}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{double}\ h\_;}
+\DoxyCodeLine{00103\ \ \ \ \ }
+\DoxyCodeLine{00104\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{explicit}\ \doxymbox{\hyperlink{classlook__back_ad0d5bed4b489d2fc70f18237e76709da}{look\_back}}(\textcolor{keywordtype}{double}\ S0,\ \doxymbox{\hyperlink{struct_date}{Date}}\ value\_date,\ \doxymbox{\hyperlink{struct_date}{Date}}\ maturity\_date,\ \textcolor{keywordtype}{double}\ sigma,\ \textcolor{keywordtype}{double}\ interest\_rate,\ \textcolor{keywordtype}{char}\ option,\ \textcolor{keywordtype}{double}\ h,\ \doxymbox{\hyperlink{_date___dealing_8h_aa00d31f388138ee974de37f288651cd0}{DayCountConv}}\ ddc\ \ =\ \doxymbox{\hyperlink{_date___dealing_8h_aa00d31f388138ee974de37f288651cd0a1e03857ef538881f02f156179b6fd6e6}{DayCountConv::ACT\_ACT\_ISDA}})}
+\DoxyCodeLine{00120\ \ \ \ \ }
+\DoxyCodeLine{00121\ \ \ \ \ :\ \ S0\_(S0),\ value\_date\_(value\_date),\ maturity\_date\_(maturity\_date),\ ttm\_(\doxymbox{\hyperlink{_date___dealing_8cpp_a16d5f3ec21ae41b86d6c1b6368f186f8}{yearFraction}}(value\_date,\ maturity\_date,\ ddc)),\ sigma\_(sigma),\ interest\_rate\_(interest\_rate),\ option\_(std::tolower(option)),\ h\_(h)}
+\DoxyCodeLine{00122\ \ \ \ \ }
+\DoxyCodeLine{00123\ \ \ \ \ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{class_look___back___validator_a5fd22578ef56a2fd972bdb2ba0b8f52c}{Look\_Back\_Validator::validate}}(S0\_,\ sigma\_,\ interest\_rate\_,\ option\_,\ ttm\_,\ h\_);}
+\DoxyCodeLine{00125\ \ \ \ \ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ }
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classlook__back_a90ff491cedf7f3e0da2b46b266af7401}{price}}(\textcolor{keywordtype}{double}\ S,\ \textcolor{keywordtype}{double}\ sigma,\ \textcolor{keywordtype}{double}\ interest\_rate,\ \textcolor{keywordtype}{double}\ maturity,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ N\ =\ 5000000)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00161\ \ \ \ \ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classlook__back_a60298d1275643a61360ef21dacc1a858}{delta}}(\textcolor{keywordtype}{double}\ S)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classlook__back_a83cbcd6926997cce309d0c4940507c9d}{theta}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classlook__back_a1d4b09aa09a7b4c1e2c1b12f46ec6590}{rho}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classlook__back_a78cf8e87d0d68acc6e97097c8bf574ae}{vega}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{double}\ \doxymbox{\hyperlink{classlook__back_a33e6d5aa388e3d688f1fa2cafc68a92a}{gamma}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00178\ \ \ \ \ std::array<vect,2>\ \doxymbox{\hyperlink{classlook__back_a30b41da0f13f9a515fa0fd9f1357005d}{graphic\_price}}(\textcolor{keywordtype}{double}\ dx)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00181\ \ \ \ \ std::array<vect,2>\ \doxymbox{\hyperlink{classlook__back_af4106050b0d050645292027367ddeb91}{graphic\_delta}}(\textcolor{keywordtype}{double}\ dx)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \};}
+\DoxyCodeLine{00184\ \ \textcolor{comment}{//\ endgroup\ LB\_Core}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
