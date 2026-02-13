@@ -25,7 +25,7 @@ int main() {
     try {
         const auto t0 = clock::now();
 
-        const Date value_date("01-01-2024"), maturity_date("01-01-2025"); // dd-mm-yyyy
+        const Date value_date("01-01-2024"), maturity_date("02-01-2024"); // dd-mm-yyyy
 
         const double ttm_act365f   = yearFraction(value_date, maturity_date, DayCountConv::ACT_365F);
         const double ttm_actactisd = yearFraction(value_date, maturity_date, DayCountConv::ACT_ACT_ISDA);
@@ -39,7 +39,7 @@ int main() {
         constexpr char   optType    = 'C'; // 'C' for call, 'P' for put
         constexpr double hBump      = 0.008;
         constexpr double graph_step = 0.1;
-        constexpr unsigned int N    = 50000000u;
+        constexpr unsigned int N    = 50000000;
 
         look_back l(S0, value_date, maturity_date, sigma, r, optType, hBump, DayCountConv::ACT_ACT_ISDA);
 

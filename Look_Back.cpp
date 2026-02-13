@@ -150,6 +150,11 @@ double look_back::theta() const
 {
     double day=(3.0/365.0);
     unsigned int N =1/(std::pow(day, 4));
+    if (ttm_<=4)
+    {
+        day=(0.5/365.0);
+        unsigned int N =1/(std::pow(day, 3));
+    }
     return (price(S0_, sigma_, interest_rate_, ttm_-day,N) - price(S0_, sigma_, interest_rate_, ttm_+day, N))/ (2.0*day);
 }
 
