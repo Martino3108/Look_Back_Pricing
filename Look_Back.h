@@ -67,8 +67,7 @@ typedef std::vector<double> vect;
  *
  * Let \f$X_t\f$ denote the log-price process and
  * \f$M_t = \sup_{0 \le s \le t} X_s\f$ its running maximum.
- * Given an Euler discretization \f$\hat{X}\f$, the conditional law of the
- * maximum on each interval is sampled using an independent uniform random
+ * The law of the maximum on each interval is sampled using an independent uniform random
  * variable, as stated in Paragraph 6.9.1.1 Black–Scholes Case.
  *
  * This approach significantly reduces the discretization bias typically
@@ -130,10 +129,8 @@ public:
      * \f$\phi(X_T, M_T)\f$, where \f$M_T = \sup_{0 \le t \le T} X_t\f$.
      *
      * The simulation of the pair \f$(X_T, M_T)\f$ follows the algorithm described in
-     * Stéphane Crépey (2013), Section 6.9, using:
-     * - an Euler discretization for the underlying process, and
-     * - an exact conditional sampling of the running maximum on each time interval
-     *   via an auxiliary uniform random variable.
+     * Stéphane Crépey (2013), Section 6.9, using an exact sampling of the running 
+     * maximum on each time interval via an auxiliary uniform random variable.
      *
      * This avoids the bias that would arise from approximating the maximum by
      * discrete-time sampling alone.

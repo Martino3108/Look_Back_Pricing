@@ -39,7 +39,7 @@ This class implements a Monte Carlo pricing algorithm for lookback options, wher
 
 The pricing methodology follows the approach described in Stéphane Crépey (2013), Section 6.\+9, and is based on an exact simulation of the joint distribution of the discretized process and its running maximum.
 
-Let $X_t$ denote the log-\/price process and $M_t = \sup_{0 \le s \le t} X_s$ its running maximum. Given an Euler discretization $\hat{X}$, the conditional law of the maximum on each interval is sampled using an independent uniform random variable, as stated in Paragraph 6.\+9.\+1.\+1 Black–\+Scholes Case.
+Let $X_t$ denote the log-\/price process and $M_t = \sup_{0 \le s \le t} X_s$ its running maximum. The law of the maximum on each interval is sampled using an independent uniform random variable, as stated in Paragraph 6.\+9.\+1.\+1 Black–\+Scholes Case.
 
 This approach significantly reduces the discretization bias typically encountered when approximating path-\/dependent extrema.
 
@@ -145,11 +145,7 @@ Prices a lookback option using Monte Carlo simulation.
 
 The option price is computed as the discounted expectation of the payoff $\phi(X_T, M_T)$, where $M_T = \sup_{0 \le t \le T} X_t$.
 
-The simulation of the pair $(X_T, M_T)$ follows the algorithm described in Stéphane Crépey (2013), Section 6.\+9, using:\+
-\begin{DoxyItemize}
-\item an Euler discretization for the underlying process, and
-\item an exact conditional sampling of the running maximum on each time interval via an auxiliary uniform random variable.
-\end{DoxyItemize}
+The simulation of the pair $(X_T, M_T)$ follows the algorithm described in Stéphane Crépey (2013), Section 6.\+9, using an exact sampling of the running maximum on each time interval via an auxiliary uniform random variable.
 
 This avoids the bias that would arise from approximating the maximum by discrete-\/time sampling alone.
 

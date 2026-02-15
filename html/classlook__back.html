@@ -130,7 +130,7 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Monte Carlo pricer for lookback options. </p>
 <p>This class implements a Monte Carlo pricing algorithm for lookback options, where the payoff depends on the running maximum of the underlying process.</p>
 <p>The pricing methodology follows the approach described in Stéphane Crépey (2013), Section 6.9, and is based on an exact simulation of the joint distribution of the discretized process and its running maximum.</p>
-<p>Let \(X_t\) denote the log-price process and \(M_t = \sup_{0 \le s \le t} X_s\) its running maximum. Given an Euler discretization \(\hat{X}\), the conditional law of the maximum on each interval is sampled using an independent uniform random variable, as stated in Paragraph 6.9.1.1 Black–Scholes Case.</p>
+<p>Let \(X_t\) denote the log-price process and \(M_t = \sup_{0 \le s \le t} X_s\) its running maximum. The law of the maximum on each interval is sampled using an independent uniform random variable, as stated in Paragraph 6.9.1.1 Black–Scholes Case.</p>
 <p>This approach significantly reduces the discretization bias typically encountered when approximating path-dependent extrema.</p>
 <dl class="section note"><dt>Note</dt><dd>The numerical scheme implemented here is valid under the assumptions described in the reference (diffusion dynamics with continuous paths).</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>The Monte Carlo cost can be high, as the simulation of the running maximum is performed at each time step and for each path. </dd></dl>
@@ -328,10 +328,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Prices a lookback option using Monte Carlo simulation. </p>
 <p>The option price is computed as the discounted expectation of the payoff \(\phi(X_T, M_T)\), where \(M_T = \sup_{0 \le t \le T} X_t\).</p>
-<p>The simulation of the pair \((X_T, M_T)\) follows the algorithm described in Stéphane Crépey (2013), Section 6.9, using:</p><ul>
-<li>an Euler discretization for the underlying process, and</li>
-<li>an exact conditional sampling of the running maximum on each time interval via an auxiliary uniform random variable.</li>
-</ul>
+<p>The simulation of the pair \((X_T, M_T)\) follows the algorithm described in Stéphane Crépey (2013), Section 6.9, using an exact sampling of the running maximum on each time interval via an auxiliary uniform random variable.</p>
 <p>This avoids the bias that would arise from approximating the maximum by discrete-time sampling alone.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
