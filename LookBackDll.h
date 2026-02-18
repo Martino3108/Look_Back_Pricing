@@ -19,6 +19,12 @@
  *   OpenMP linkage, install_name_tool, etc.) so the generated docs are reproducible.
  */
 
+
+/** @defgroup LB_Bridge Bridge (C ABI)
+ *  @brief C ABI entry points used by Excel/VBA (and other foreign language callers).
+ *  @{
+ */
+
 #pragma once
 
 #include <cstddef>
@@ -38,11 +44,6 @@
     #define LB_API extern "C"
   #endif
 #endif
-
-/** @defgroup LB_Bridge Bridge (C ABI)
- *  @brief C ABI entry points used by Excel/VBA (and other foreign language callers).
- *  @{
- */
 
 /**
  * @enum LB_DayCountConv
