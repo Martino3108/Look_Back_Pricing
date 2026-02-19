@@ -5,6 +5,13 @@
 C ABI entry points used by Excel/\+\+VBA (and other foreign language callers).  
 
 
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\+\#define \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}}
+\item 
+\+\#define \doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}}~extern "{}C"{}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,36 +32,53 @@ enum \doxymbox{\hyperlink{group___l_b___bridge_gabae82c30a9e98db678becc60139bc82
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} \doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_ga4b70f4bfdbd4cd41c41175a18f462899}{LB\+\_\+\+CreateA}} (double S0, const char \texorpdfstring{$\ast$}{*}value\+\_\+date\+\_\+dd\+\_\+mm\+\_\+yyyy, const char \texorpdfstring{$\ast$}{*}maturity\+\_\+date\+\_\+dd\+\_\+mm\+\_\+yyyy, double sigma, double interest\+\_\+rate, int option\+\_\+ascii, double h, int day\+\_\+count\+\_\+conv)
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} \doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_ga4b70f4bfdbd4cd41c41175a18f462899}{LB\+\_\+\+CreateA}} (double S0, const char \texorpdfstring{$\ast$}{*}value\+\_\+date\+\_\+dd\+\_\+mm\+\_\+yyyy, const char \texorpdfstring{$\ast$}{*}maturity\+\_\+date\+\_\+dd\+\_\+mm\+\_\+yyyy, double sigma, double interest\+\_\+rate, int option\+\_\+ascii, double h, int day\+\_\+count\+\_\+conv)
 \begin{DoxyCompactList}\small\item\em Creates a Look\+Back pricer instance (ASCII dates, portable ABI). \end{DoxyCompactList}\item 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} void \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gacf8b49bd449f6f9d6f5132b03b7f5ade}{LB\+\_\+\+Destroy}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h)
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} void \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gacf8b49bd449f6f9d6f5132b03b7f5ade}{LB\+\_\+\+Destroy}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h)
 \begin{DoxyCompactList}\small\item\em Destroys a pricer instance created by LB\+\_\+\+CreateA /\+ LB\+\_\+\+CreateW. \end{DoxyCompactList}\item 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gaf83d3ceb208a65a69184495837966ca5}{LB\+\_\+\+Price}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h, double S, double sigma, double interest\+\_\+rate, double maturity, unsigned int N)
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gaf83d3ceb208a65a69184495837966ca5}{LB\+\_\+\+Price}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h, double S, double sigma, double interest\+\_\+rate, double maturity, unsigned int N)
 \begin{DoxyCompactList}\small\item\em Prices the lookback option by Monte Carlo. \end{DoxyCompactList}\item 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gad90df584ef0305ad1f205377848ae9c6}{LB\+\_\+\+Delta}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h, double S)
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gad90df584ef0305ad1f205377848ae9c6}{LB\+\_\+\+Delta}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h, double S)
 \item 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gafed1a33950eb67185e495c1fa01e38e6}{LB\+\_\+\+Theta}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h)
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gafed1a33950eb67185e495c1fa01e38e6}{LB\+\_\+\+Theta}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h)
 \item 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_ga6838099ff6f7d655943fdb02ccd6d08b}{LB\+\_\+\+Rho}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h)
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_ga6838099ff6f7d655943fdb02ccd6d08b}{LB\+\_\+\+Rho}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h)
 \item 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_ga93d7158cf821ee0496e48ea5362030cd}{LB\+\_\+\+Vega}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h)
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_ga93d7158cf821ee0496e48ea5362030cd}{LB\+\_\+\+Vega}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h)
 \item 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gabcb5ce6bfeb265f7207eb857f337a753}{LB\+\_\+\+Gamma}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h)
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gabcb5ce6bfeb265f7207eb857f337a753}{LB\+\_\+\+Gamma}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h)
 \item 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} int \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_ga265d73683d740c535995e31f25794767}{LB\+\_\+\+Graphic\+Price}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h, double dx, double \texorpdfstring{$\ast$}{*}x\+\_\+out, double \texorpdfstring{$\ast$}{*}y\+\_\+out, int max\+\_\+len)
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} int \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_ga265d73683d740c535995e31f25794767}{LB\+\_\+\+Graphic\+Price}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h, double dx, double \texorpdfstring{$\ast$}{*}x\+\_\+out, double \texorpdfstring{$\ast$}{*}y\+\_\+out, int max\+\_\+len)
 \item 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} int \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_ga44abaf6da846101eb18009600254638e}{LB\+\_\+\+Graphic\+Delta}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h, double dx, double \texorpdfstring{$\ast$}{*}x\+\_\+out, double \texorpdfstring{$\ast$}{*}y\+\_\+out, int max\+\_\+len)
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} int \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_ga44abaf6da846101eb18009600254638e}{LB\+\_\+\+Graphic\+Delta}} (\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} h, double dx, double \texorpdfstring{$\ast$}{*}x\+\_\+out, double \texorpdfstring{$\ast$}{*}y\+\_\+out, int max\+\_\+len)
 \item 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gab2dc6a9a67c7cc59615b2c42e9958a8a}{LB\+\_\+\+Get\+Year\+Fraction}} (const char \texorpdfstring{$\ast$}{*}start\+\_\+date, const char \texorpdfstring{$\ast$}{*}end\+\_\+date, int day\+\_\+count\+\_\+conv)
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gab2dc6a9a67c7cc59615b2c42e9958a8a}{LB\+\_\+\+Get\+Year\+Fraction}} (const char \texorpdfstring{$\ast$}{*}start\+\_\+date, const char \texorpdfstring{$\ast$}{*}end\+\_\+date, int day\+\_\+count\+\_\+conv)
 \item 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} int \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gaf98edfebf3ee03b2efdf7003c51db016}{LB\+\_\+\+Get\+Last\+ErrorA}} (char \texorpdfstring{$\ast$}{*}buffer, int buffer\+\_\+len)
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} int \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gaf98edfebf3ee03b2efdf7003c51db016}{LB\+\_\+\+Get\+Last\+ErrorA}} (char \texorpdfstring{$\ast$}{*}buffer, int buffer\+\_\+len)
 \begin{DoxyCompactList}\small\item\em Retrieves the last error message (ASCII). \end{DoxyCompactList}\item 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} void \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gafcbc0c6e16396dc29926bf6695f22e2c}{LB\+\_\+\+Clear\+Last\+Error}} ()
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} void \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} \doxymbox{\hyperlink{group___l_b___bridge_gafcbc0c6e16396dc29926bf6695f22e2c}{LB\+\_\+\+Clear\+Last\+Error}} ()
 \begin{DoxyCompactList}\small\item\em Clears the thread-\/local last error buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 C ABI entry points used by Excel/\+\+VBA (and other foreign language callers). 
+
+
+
+\label{doc-define-members}
+\Hypertarget{group___l_b___bridge_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}\index{Bridge (C ABI)@{Bridge (C ABI)}!LB\_API@{LB\_API}}
+\index{LB\_API@{LB\_API}!Bridge (C ABI)@{Bridge (C ABI)}}
+\doxysubsubsection{\texorpdfstring{LB\_API}{LB\_API}}
+{\footnotesize\ttfamily \label{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae} 
+\+\#define LB\+\_\+\+API~extern "{}C"{}}
+
+\Hypertarget{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}\index{Bridge (C ABI)@{Bridge (C ABI)}!LB\_CALL@{LB\_CALL}}
+\index{LB\_CALL@{LB\_CALL}!Bridge (C ABI)@{Bridge (C ABI)}}
+\doxysubsubsection{\texorpdfstring{LB\_CALL}{LB\_CALL}}
+{\footnotesize\ttfamily \label{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041} 
+\+\#define LB\+\_\+\+CALL}
 
 
 
@@ -127,7 +151,7 @@ LB\+\_\+\+ACT\+\_\+\+ACT\+\_\+\+ISDA&\\
 \index{LB\_ClearLastError@{LB\_ClearLastError}!Bridge (C ABI)@{Bridge (C ABI)}}
 \doxysubsubsection{\texorpdfstring{LB\_ClearLastError()}{LB\_ClearLastError()}}
 {\footnotesize\ttfamily \label{group___l_b___bridge_gafcbc0c6e16396dc29926bf6695f22e2c} 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} void \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Clear\+Last\+Error (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} void \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Clear\+Last\+Error (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
@@ -137,7 +161,7 @@ Clears the thread-\/local last error buffer.
 \index{LB\_CreateA@{LB\_CreateA}!Bridge (C ABI)@{Bridge (C ABI)}}
 \doxysubsubsection{\texorpdfstring{LB\_CreateA()}{LB\_CreateA()}}
 {\footnotesize\ttfamily \label{group___l_b___bridge_ga4b70f4bfdbd4cd41c41175a18f462899} 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} \doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+CreateA (\begin{DoxyParamCaption}\item[{double}]{S0}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{value\+\_\+date\+\_\+dd\+\_\+mm\+\_\+yyyy}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{maturity\+\_\+date\+\_\+dd\+\_\+mm\+\_\+yyyy}{, }\item[{double}]{sigma}{, }\item[{double}]{interest\+\_\+rate}{, }\item[{int}]{option\+\_\+ascii}{, }\item[{double}]{h}{, }\item[{int}]{day\+\_\+count\+\_\+conv}{}\end{DoxyParamCaption})}
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} \doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}} \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+CreateA (\begin{DoxyParamCaption}\item[{double}]{S0}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{value\+\_\+date\+\_\+dd\+\_\+mm\+\_\+yyyy}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{maturity\+\_\+date\+\_\+dd\+\_\+mm\+\_\+yyyy}{, }\item[{double}]{sigma}{, }\item[{double}]{interest\+\_\+rate}{, }\item[{int}]{option\+\_\+ascii}{, }\item[{double}]{h}{, }\item[{int}]{day\+\_\+count\+\_\+conv}{}\end{DoxyParamCaption})}
 
 
 
@@ -177,13 +201,13 @@ Error model:\+
 \index{LB\_Delta@{LB\_Delta}!Bridge (C ABI)@{Bridge (C ABI)}}
 \doxysubsubsection{\texorpdfstring{LB\_Delta()}{LB\_Delta()}}
 {\footnotesize\ttfamily \label{group___l_b___bridge_gad90df584ef0305ad1f205377848ae9c6} 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Delta (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{, }\item[{double}]{S}{}\end{DoxyParamCaption})}
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Delta (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{, }\item[{double}]{S}{}\end{DoxyParamCaption})}
 
 \Hypertarget{group___l_b___bridge_gacf8b49bd449f6f9d6f5132b03b7f5ade}\index{Bridge (C ABI)@{Bridge (C ABI)}!LB\_Destroy@{LB\_Destroy}}
 \index{LB\_Destroy@{LB\_Destroy}!Bridge (C ABI)@{Bridge (C ABI)}}
 \doxysubsubsection{\texorpdfstring{LB\_Destroy()}{LB\_Destroy()}}
 {\footnotesize\ttfamily \label{group___l_b___bridge_gacf8b49bd449f6f9d6f5132b03b7f5ade} 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} void \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Destroy (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{}\end{DoxyParamCaption})}
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} void \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Destroy (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{}\end{DoxyParamCaption})}
 
 
 
@@ -198,13 +222,13 @@ Destroys a pricer instance created by LB\+\_\+\+CreateA /\+ LB\+\_\+\+CreateW.
 \index{LB\_Gamma@{LB\_Gamma}!Bridge (C ABI)@{Bridge (C ABI)}}
 \doxysubsubsection{\texorpdfstring{LB\_Gamma()}{LB\_Gamma()}}
 {\footnotesize\ttfamily \label{group___l_b___bridge_gabcb5ce6bfeb265f7207eb857f337a753} 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Gamma (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{}\end{DoxyParamCaption})}
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Gamma (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{}\end{DoxyParamCaption})}
 
 \Hypertarget{group___l_b___bridge_gaf98edfebf3ee03b2efdf7003c51db016}\index{Bridge (C ABI)@{Bridge (C ABI)}!LB\_GetLastErrorA@{LB\_GetLastErrorA}}
 \index{LB\_GetLastErrorA@{LB\_GetLastErrorA}!Bridge (C ABI)@{Bridge (C ABI)}}
 \doxysubsubsection{\texorpdfstring{LB\_GetLastErrorA()}{LB\_GetLastErrorA()}}
 {\footnotesize\ttfamily \label{group___l_b___bridge_gaf98edfebf3ee03b2efdf7003c51db016} 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} int \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Get\+Last\+ErrorA (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{int}]{buffer\+\_\+len}{}\end{DoxyParamCaption})}
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} int \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Get\+Last\+ErrorA (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{int}]{buffer\+\_\+len}{}\end{DoxyParamCaption})}
 
 
 
@@ -224,25 +248,25 @@ Number of chars written including null terminator, or needed size.
 \index{LB\_GetYearFraction@{LB\_GetYearFraction}!Bridge (C ABI)@{Bridge (C ABI)}}
 \doxysubsubsection{\texorpdfstring{LB\_GetYearFraction()}{LB\_GetYearFraction()}}
 {\footnotesize\ttfamily \label{group___l_b___bridge_gab2dc6a9a67c7cc59615b2c42e9958a8a} 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Get\+Year\+Fraction (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{start\+\_\+date}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{end\+\_\+date}{, }\item[{int}]{day\+\_\+count\+\_\+conv}{}\end{DoxyParamCaption})}
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Get\+Year\+Fraction (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{start\+\_\+date}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{end\+\_\+date}{, }\item[{int}]{day\+\_\+count\+\_\+conv}{}\end{DoxyParamCaption})}
 
 \Hypertarget{group___l_b___bridge_ga44abaf6da846101eb18009600254638e}\index{Bridge (C ABI)@{Bridge (C ABI)}!LB\_GraphicDelta@{LB\_GraphicDelta}}
 \index{LB\_GraphicDelta@{LB\_GraphicDelta}!Bridge (C ABI)@{Bridge (C ABI)}}
 \doxysubsubsection{\texorpdfstring{LB\_GraphicDelta()}{LB\_GraphicDelta()}}
 {\footnotesize\ttfamily \label{group___l_b___bridge_ga44abaf6da846101eb18009600254638e} 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} int \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Graphic\+Delta (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{, }\item[{double}]{dx}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{x\+\_\+out}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{y\+\_\+out}{, }\item[{int}]{max\+\_\+len}{}\end{DoxyParamCaption})}
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} int \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Graphic\+Delta (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{, }\item[{double}]{dx}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{x\+\_\+out}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{y\+\_\+out}{, }\item[{int}]{max\+\_\+len}{}\end{DoxyParamCaption})}
 
 \Hypertarget{group___l_b___bridge_ga265d73683d740c535995e31f25794767}\index{Bridge (C ABI)@{Bridge (C ABI)}!LB\_GraphicPrice@{LB\_GraphicPrice}}
 \index{LB\_GraphicPrice@{LB\_GraphicPrice}!Bridge (C ABI)@{Bridge (C ABI)}}
 \doxysubsubsection{\texorpdfstring{LB\_GraphicPrice()}{LB\_GraphicPrice()}}
 {\footnotesize\ttfamily \label{group___l_b___bridge_ga265d73683d740c535995e31f25794767} 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} int \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Graphic\+Price (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{, }\item[{double}]{dx}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{x\+\_\+out}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{y\+\_\+out}{, }\item[{int}]{max\+\_\+len}{}\end{DoxyParamCaption})}
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} int \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Graphic\+Price (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{, }\item[{double}]{dx}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{x\+\_\+out}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{y\+\_\+out}{, }\item[{int}]{max\+\_\+len}{}\end{DoxyParamCaption})}
 
 \Hypertarget{group___l_b___bridge_gaf83d3ceb208a65a69184495837966ca5}\index{Bridge (C ABI)@{Bridge (C ABI)}!LB\_Price@{LB\_Price}}
 \index{LB\_Price@{LB\_Price}!Bridge (C ABI)@{Bridge (C ABI)}}
 \doxysubsubsection{\texorpdfstring{LB\_Price()}{LB\_Price()}}
 {\footnotesize\ttfamily \label{group___l_b___bridge_gaf83d3ceb208a65a69184495837966ca5} 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Price (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{, }\item[{double}]{S}{, }\item[{double}]{sigma}{, }\item[{double}]{interest\+\_\+rate}{, }\item[{double}]{maturity}{, }\item[{unsigned int}]{N}{}\end{DoxyParamCaption})}
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Price (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{, }\item[{double}]{S}{, }\item[{double}]{sigma}{, }\item[{double}]{interest\+\_\+rate}{, }\item[{double}]{maturity}{, }\item[{unsigned int}]{N}{}\end{DoxyParamCaption})}
 
 
 
@@ -270,17 +294,17 @@ Option price (discounted), or 0.\+0 on error.
 \index{LB\_Rho@{LB\_Rho}!Bridge (C ABI)@{Bridge (C ABI)}}
 \doxysubsubsection{\texorpdfstring{LB\_Rho()}{LB\_Rho()}}
 {\footnotesize\ttfamily \label{group___l_b___bridge_ga6838099ff6f7d655943fdb02ccd6d08b} 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Rho (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{}\end{DoxyParamCaption})}
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Rho (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{}\end{DoxyParamCaption})}
 
 \Hypertarget{group___l_b___bridge_gafed1a33950eb67185e495c1fa01e38e6}\index{Bridge (C ABI)@{Bridge (C ABI)}!LB\_Theta@{LB\_Theta}}
 \index{LB\_Theta@{LB\_Theta}!Bridge (C ABI)@{Bridge (C ABI)}}
 \doxysubsubsection{\texorpdfstring{LB\_Theta()}{LB\_Theta()}}
 {\footnotesize\ttfamily \label{group___l_b___bridge_gafed1a33950eb67185e495c1fa01e38e6} 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Theta (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{}\end{DoxyParamCaption})}
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Theta (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{}\end{DoxyParamCaption})}
 
 \Hypertarget{group___l_b___bridge_ga93d7158cf821ee0496e48ea5362030cd}\index{Bridge (C ABI)@{Bridge (C ABI)}!LB\_Vega@{LB\_Vega}}
 \index{LB\_Vega@{LB\_Vega}!Bridge (C ABI)@{Bridge (C ABI)}}
 \doxysubsubsection{\texorpdfstring{LB\_Vega()}{LB\_Vega()}}
 {\footnotesize\ttfamily \label{group___l_b___bridge_ga93d7158cf821ee0496e48ea5362030cd} 
-\doxymbox{\hyperlink{_look_back_dll_8h_a3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{_look_back_dll_8h_aa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Vega (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{}\end{DoxyParamCaption})}
+\doxymbox{\hyperlink{group___l_b___bridge_ga3c82346e55f551b0fb7c2ca32b4478ae}{LB\+\_\+\+API}} double \doxymbox{\hyperlink{group___l_b___bridge_gaa11a53a81497d5fdcaf17b7d697bb041}{LB\+\_\+\+CALL}} LB\+\_\+\+Vega (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{group___l_b___bridge_ga11b9592738d656b17b24cc3a9f42e9d8}{LB\+\_\+\+Handle}}}]{h}{}\end{DoxyParamCaption})}
 

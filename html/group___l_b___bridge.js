@@ -1,5 +1,7 @@
 var group___l_b___bridge =
 [
+    [ "LB_API", "group___l_b___bridge.html#ga3c82346e55f551b0fb7c2ca32b4478ae", null ],
+    [ "LB_CALL", "group___l_b___bridge.html#gaa11a53a81497d5fdcaf17b7d697bb041", null ],
     [ "LB_Handle", "group___l_b___bridge.html#ga11b9592738d656b17b24cc3a9f42e9d8", null ],
     [ "LB_DayCountConv", "group___l_b___bridge.html#gabae82c30a9e98db678becc60139bc826", [
       [ "LB_ACT_360", "group___l_b___bridge.html#ggabae82c30a9e98db678becc60139bc826aad1fb55d55f7d38a3e284b84d1c21c5a", null ],

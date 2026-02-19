@@ -37,14 +37,12 @@ Monte Carlo pricer for lookback options.
 
 This class implements a Monte Carlo pricing algorithm for lookback options, where the payoff depends on the running maximum of the underlying process.
 
-The pricing methodology follows the approach described in Stéphane Crépey (2013), Section 6.\+9, and is based on an exact simulation of the joint distribution of the discretized process and its running maximum.
+The pricing methodology follows the approach described in Stéphane Crépey (2013), Section 6.\+9, and is based on an exact simulation of the joint distribution of the process and its running maximum.
 
 Let $X_t$ denote the log-\/price process and $M_t = \sup_{0 \le s \le t} X_s$ its running maximum. The law of the maximum on each interval is sampled using an independent uniform random variable, as stated in Paragraph 6.\+9.\+1.\+1 Black–\+Scholes Case.
 
-This approach significantly reduces the discretization bias typically encountered when approximating path-\/dependent extrema.
-
 \begin{DoxyNote}{Note}
-The numerical scheme implemented here is valid under the assumptions described in the reference (diffusion dynamics with continuous paths).
+The algorithm implemented here is valid under the assumptions described in the reference.
 \end{DoxyNote}
 \begin{DoxyWarning}{Warning}
 The Monte Carlo cost can be high, as the simulation of the running maximum is performed at each time step and for each path. 

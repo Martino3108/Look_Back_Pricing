@@ -8,7 +8,7 @@
  * 
  * @details
  * Defines the `look_back` class which encapsulates contract inputs (dates, option type),
- * market parameters (sigma, rate), and numerical controls for Greeks (finite-difference step).
+ * market parameters (sigma, rate), and numerical controls for Greeks.
  *
  * The class offers:
  * - Monte Carlo pricing (option payoff estimated under GBM assumptions).
@@ -63,19 +63,16 @@ typedef std::vector<double> vect;
  *
  * The pricing methodology follows the approach described in
  * Stéphane Crépey (2013), Section 6.9, and is based on an exact simulation of the
- * joint distribution of the discretized process and its running maximum.
+ * joint distribution of the process and its running maximum.
  *
  * Let \f$X_t\f$ denote the log-price process and
  * \f$M_t = \sup_{0 \le s \le t} X_s\f$ its running maximum.
  * The law of the maximum on each interval is sampled using an independent uniform random
  * variable, as stated in Paragraph 6.9.1.1 Black–Scholes Case.
  *
- * This approach significantly reduces the discretization bias typically
- * encountered when approximating path-dependent extrema.
- *
  * @note
- * The numerical scheme implemented here is valid under the assumptions
- * described in the reference (diffusion dynamics with continuous paths).
+ * The algorithm implemented here is valid under the assumptions
+ * described in the reference.
  *
  * @warning
  * The Monte Carlo cost can be high, as the simulation of the running maximum

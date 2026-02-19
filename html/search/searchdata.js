@@ -8,9 +8,8 @@ var indexSectionsWithContent =
   5: "lv",
   6: "dl",
   7: "alt",
-  8: "l",
-  9: "abc",
-  10: "123abcdefilmnoprstv "
+  8: "abc",
+  9: "123abcdefilmnoprstv "
 };
 
 var indexSectionNames =
@@ -23,9 +22,8 @@ var indexSectionNames =
   5: "typedefs",
   6: "enums",
   7: "enumvalues",
-  8: "defines",
-  9: "groups",
-  10: "pages"
+  8: "groups",
+  9: "pages"
 };
 
 var indexSectionLabels =
@@ -38,8 +36,7 @@ var indexSectionLabels =
   5: "Typedefs",
   6: "Enumerations",
   7: "Enumerator",
-  8: "Macros",
-  9: "Modules",
-  10: "Pages"
+  8: "Modules",
+  9: "Pages"
 };
 

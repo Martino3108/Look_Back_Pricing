@@ -124,13 +124,13 @@ Objectives of the Project</h1>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
 Financial Model</h1>
 <p>The pricing methodology implemented in this project is based on a <b>continuous-time stochastic framework</b>, following the exact simulation of lookback options as presented in Crépey (2013).</p>
-<p>Let \( X_t \) denote a one-dimensional diffusion process defined on the time interval \( [0,T] \), satisfying the stochastic differential equation:</p>
+<p>Let \(X_t\) denote a one-dimensional diffusion process defined on the time interval \([0,T]\), satisfying the stochastic differential equation:</p>
 <p>$$dX_t = b \ dt + \sigma \ dW_t,$$</p>
-<p>where \( W_t \) is a standard Brownian motion. This dynamics corresponds to the explicit solution of the Black-Scholes model (applied to log-prices). The associated running maximum process is defined as:</p>
+<p>where \(W_tf\) is a standard Brownian motion. This dynamics corresponds to the explicit solution of the Black-Scholes model (applied to log-prices). The associated running maximum process is defined as:</p>
 <p>$$M_t = \sup_{0 \le s \le t} X_s.$$</p>
-<p>A lookback option payoff is written in the general form \( \phi(X_T, M_T) \).</p>
-<p>Since the model assumes constant coefficients, the SDE admits a <b>closed-form solution</b>. Therefore, the Monte Carlo pricing procedure does not require a time-discretized approximation. Instead, it relies on the <b>exact simulation of the joint law</b> of the terminal value and the running maximum, \( (X_T, M_T) \).</p>
-<p>Specifically, the terminal value \( X_T \) is simulated directly from its Gaussian distribution. Conditioned on the value of \( X_T \), the running maximum \( M_T \) follows a known distribution (derived from the reflection principle for Brownian motion with drift), which can be sampled exactly using an auxiliary independent uniform random variable.</p>
+<p>A lookback option payoff is written in the general form \(\phi(X_T, M_T)\).</p>
+<p>Since the model assumes constant coefficients, the SDE admits a <b>closed-form solution</b>. Therefore, the Monte Carlo pricing procedure does not require a time-discretized approximation. Instead, it relies on the <b>exact simulation of the joint law</b> of the terminal value and the running maximum, \((X_T, M_T)\).</p>
+<p>Specifically, the terminal value \(X_T\) is simulated directly from its Gaussian distribution. Conditioned on the value of \(X_T\), the running maximum \(M_T\) follows a known distribution (derived from the reflection principle for Brownian motion with drift), which can be sampled exactly using an auxiliary independent uniform random variable.</p>
 <p>This approach preserves the <b>continuous-time nature of the maximum process</b> without any discretization bias, ensuring high accuracy and computational efficiency within the Monte Carlo framework.</p>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
@@ -217,7 +217,7 @@ References</h1>
 <li>Section 6.9: <em>Lookback Options</em></li>
 <li>Subsection 6.9.1.1: <em>Black–Scholes Case</em></li>
 </ul>
-<p>The simulation of the joint distribution of the terminal log-price and its running maximum, \( (X_T, M_T) \), is performed by sampling the conditional distribution of the maximum over each time interval using an auxiliary uniform random variable, as described in equation (6.20) of the reference.</p>
+<p>The simulation of the joint distribution of the terminal log-price and its running maximum, \((X_T, M_T)\), is performed by sampling the conditional distribution of the maximum over each time interval using an auxiliary uniform random variable, as described in equation (6.20) of the reference.</p>
 <p>This reference provides the sole theoretical foundation for the pricing methodology implemented in the library.</p>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="autotoc_md34"></a>

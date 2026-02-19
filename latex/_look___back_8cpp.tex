@@ -30,6 +30,4 @@ Numerical notes:\+
 \item Uniform draws are clamped to avoid log(0).
 \end{DoxyItemize}
 
-\begin{DoxyWarning}{Warning}
-Some Greeks infer the Monte Carlo sample size as N = 1/\+h\texorpdfstring{$^\wedge$}{\string^}4, which can become huge. 
-\end{DoxyWarning}
+We choose N = 1/\+h\texorpdfstring{$^\wedge$}{\string^}4 in order to have the numerical and the Monte Carlo errors converging at the same rate. 

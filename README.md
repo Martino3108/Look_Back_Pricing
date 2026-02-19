@@ -34,7 +34,7 @@ Let $X_t$ denote a one-dimensional diffusion process defined on the time interva
 
 $$dX_t = b \ dt + \sigma \ dW_t,$$
 
-where $W_t$ is a standard Brownian motion. This dynamics corresponds to the explicit solution of the Black-Scholes model (applied to log-prices).
+where $W_tf$ is a standard Brownian motion. This dynamics corresponds to the explicit solution of the Black-Scholes model (applied to log-prices).
 The associated running maximum process is defined as:
 
 $$M_t = \sup_{0 \le s \le t} X_s.$$

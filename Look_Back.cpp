@@ -10,8 +10,7 @@
  * - Antithetic variates are used (plus/minus Z).
  * - Uniform draws are clamped to avoid log(0).
  *
- * @warning
- * Some Greeks infer the Monte Carlo sample size as N = 1/h^4, which can become huge.
+ * We choose N = 1/h^4 in order to have the numerical and the Monte Carlo errors converging at the same rate.
  */
 
 #include "Look_Back.h"
