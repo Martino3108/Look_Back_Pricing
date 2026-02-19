@@ -1,7 +1,0 @@
-var searchData=
-[
-  ['yearfrac_5f30_5f360_5feu_0',['yearfrac_30_360_eu',['../_date___dealing_8cpp.html#a0d687532b23077fee71c8756b3307cc6',1,'yearfrac_30_360_eu(const Date &amp;Date1, const Date &amp;Date2):&#160;Date_Dealing.cpp'],['../_date___dealing_8h.html#a0d687532b23077fee71c8756b3307cc6',1,'yearfrac_30_360_eu(const Date &amp;Date1, const Date &amp;Date2):&#160;Date_Dealing.cpp']]],
-  ['yearfrac_5f30_5f360_5fus_1',['yearfrac_30_360_us',['../_date___dealing_8cpp.html#a279dd4209b9d5fff61cc25c6a90ff86d',1,'yearfrac_30_360_us(const Date &amp;Date1, const Date &amp;Date2):&#160;Date_Dealing.cpp'],['../_date___dealing_8h.html#a279dd4209b9d5fff61cc25c6a90ff86d',1,'yearfrac_30_360_us(const Date &amp;Date1, const Date &amp;Date2):&#160;Date_Dealing.cpp']]],
-  ['yearfrac_5fact_5fact_5fisda_2',['yearfrac_act_act_isda',['../_date___dealing_8cpp.html#aa42aacf18acb347b1329afc16022e04a',1,'yearfrac_act_act_isda(const Date &amp;date1, const Date &amp;date2):&#160;Date_Dealing.cpp'],['../_date___dealing_8h.html#aa42aacf18acb347b1329afc16022e04a',1,'yearfrac_act_act_isda(const Date &amp;date1, const Date &amp;date2):&#160;Date_Dealing.cpp']]],
-  ['yearfraction_3',['yearFraction',['../_date___dealing_8cpp.html#a16d5f3ec21ae41b86d6c1b6368f186f8',1,'yearFraction(const Date &amp;start, const Date &amp;end, DayCountConv dc):&#160;Date_Dealing.cpp'],['../_date___dealing_8h.html#affb4e9785b04039ddbd7f0d476bec8a4',1,'yearFraction(const Date &amp;start, const Date &amp;end, DayCountConv dc=DayCountConv::ACT_ACT_ISDA):&#160;Date_Dealing.cpp']]]
-];
